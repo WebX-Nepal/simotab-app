@@ -3,6 +3,7 @@ import ErrorHandler from "../../utils/errorhandler";
 import { ProductModel } from "../../models/product.model";
 import cloudinary from "../../config/cloudinary.config";
 import fs from 'fs'
+import mongoose from "mongoose";
 export const createProductHandler = async (
   req: Request,
   res: Response,
@@ -31,7 +32,11 @@ export const createProductHandler = async (
       return next(new ErrorHandler("Please upload the thimbnail too", 404));
     }
 
-    const product = await ProductModel.create(req.body);
+
+    req.body.discount=Number(req.body.discount)
+    req.body.price=Number(req.body.price)
+
+    const product = await ProductModel.create({...req.body,category:new mongoose.Types.ObjectId(req.body.category)});
 
     res.status(200).json({
         success:true,

@@ -1,4 +1,4 @@
-import { Document } from "mongoose"
+import mongoose, { Document } from "mongoose"
 
 
 export interface ProductModelInterface extends Document {
@@ -10,6 +10,7 @@ export interface ProductModelInterface extends Document {
         url:string,
         public_id:string
     }
+    category:mongoose.Schema.Types.ObjectId
 }
 
 
@@ -22,6 +23,6 @@ export interface ProductData{
     thumbnailUrl?:{
         url:string,
         public_id:string
-    }
+    },
     
 }

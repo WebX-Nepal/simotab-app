@@ -4,6 +4,8 @@ import upload from '../middlewares/file.upload'
 import { filterResults } from '../middlewares/search_filter_page'
 import { ProductModel } from '../models/product.model'
 import { createProductHandler , deleteProductHandler, getAllProductsHandler, getsingleProductHandler, updateCoverUrlProductHandler , updateProductHandler} from '../controllers/products'
+import validateDataMiddleware from '../middlewares/validation.parse'
+import { createProductDataValidation } from '../validation/product.validation'
 
 const router=express.Router()
 

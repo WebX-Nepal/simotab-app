@@ -1,7 +1,7 @@
 import express from "express"
 
 import validateDataMiddleware from "../middlewares/validation.parse"
-import { createCategoryDataValidation } from "../validation/category.validation"
+import { createCategoryDataValidation, updateCategoryDataValidation } from "../validation/category.validation"
 import { checkAuth } from "../middlewares/auth.middleware"
 
 
@@ -14,7 +14,7 @@ router.post("/categories",checkAuth,validateDataMiddleware(createCategoryDataVal
 router.get("/categories",getAllCategoryHandler)
 router.get("/categories/:id",getSingleCategoryHandler)
 router.delete('/categories/:id',deleteCategoryHandler)
-router.patch('/categories/:id',updateCategoryHandler)
+router.patch('/categories/:id',validateDataMiddleware(updateCategoryDataValidation),updateCategoryHandler)
 
 
 export default router 
