@@ -3,23 +3,30 @@ import ErrorHandler from "../../utils/errorhandler";
 
 import asyncHanlder from "express-async-handler";
 import { CatgoryModel } from "../../models/category.model";
+import { UserModelType } from "../../types/user.types";
+import { CustomRequest } from "../../middlewares/auth.middleware";
 
-export const CreateCategoryHandler = asyncHanlder(
-  async (req: Request, res: Response, next: NextFunction) => {
+
+
+
+export const CreateCategoryHandler =async(req:CustomRequest ,res: Response, next: NextFunction) => {
     try {
       const { name, description } = req.body;
-      const category = await CatgoryModel.create({
-        name,
-        description,
-        createdBy:req.user._id
-      });
+      if(req.user){
 
-      res.status(201).json({
-        success: true,
-        category,
+        const category = await CatgoryModel.create({
+          name,
+          description,
+          createdBy:req?.user?._id
+        });
+        
+        res.status(201).json({
+          success: true,
+          category,
       });
+    }
     } catch (error: any) {
       throw new ErrorHandler(error.message, 404);
     }
   }
-);
+;

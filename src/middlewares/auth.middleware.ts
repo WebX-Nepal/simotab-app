@@ -7,14 +7,14 @@ import { NextFunction , Request, Response} from "express"
 import UserModel from '../models/user.model'
 import { Error } from 'mongoose';
 import ErrorHandler from '../utils/errorhandler';
+import { UserModelType } from '../types/user.types';
 
 
-declare global {
-    namespace Express {
-        interface Request {
-            user?:any
-        }
-    }
+
+
+
+export interface CustomRequest extends Request {
+    user:UserModelType | undefined
 }
 
 // // check auth 
@@ -31,6 +31,7 @@ export const checkAuth=asyncHandler(async(req:Request,res:Response,next:NextFunc
         let decoded:any=jwt.verify(token,enviroment.JWT_SECRET)
         const email:string=decoded.email
         const user:any=await UserModel.findOne({email})
+        console.log(user)
         req.user=user
         console.log(user)
         next()   
@@ -44,7 +45,7 @@ export const checkAuth=asyncHandler(async(req:Request,res:Response,next:NextFunc
 
 
 // check role 
-export const checkRole=(...roles:any)=>(req:Request,res:Response,next:NextFunction)=>{
+export const checkRole=(...roles:any)=>(req:CustomRequest,res:Response,next:NextFunction)=>{
     if(roles.includes(req?.user?.role)){
         next()
     }else{

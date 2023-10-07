@@ -10,7 +10,7 @@ const router=express.Router()
 
 
 
-router.post("/categories",checkAuth,validateDataMiddleware(createCategoryDataValidation),CreateCategoryHandler)
+router.post("/categories",checkAuth,validateDataMiddleware(createCategoryDataValidation),CreateCategoryHandler as any)
 router.get("/categories",getAllCategoryHandler)
 router.get("/categories/:id",getSingleCategoryHandler)
 router.delete('/categories/:id',deleteCategoryHandler)
