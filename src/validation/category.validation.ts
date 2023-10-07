@@ -1,5 +1,6 @@
 import {object,string} from 'zod'
-import { ZodCategoryValidationMessage } from '../constats/zod-message.constnts/category.validation.message'
+import { ZodCategoryValidationMessage } from '../constants/zod-message.constants/category.validation.message';
+
 
 
 export const createCategoryDataValidation=object({

@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 import bcrypt from 'bcrypt'
-import { userModelValidationMessage } from "../constats/model.constants/model.validation.message";
+
 import { UserModelType } from "../types/user.types";
+import { userModelValidationMessage } from "../constants/model.constants/model.validation.message";
 
 
 export const roles={
@@ -26,11 +27,13 @@ const userSchema=new mongoose.Schema<UserModelType>({
     },
     phone:{
         type:String,
-        required:true
     },
     role:{
         type:String,
         default:roles.User
+    },
+    profileImageUrl:{
+        type:String
     }
 
 },{timestamps:true})

@@ -1,5 +1,6 @@
 import {object,string} from 'zod'
-import { ZodUserValidationMessage } from '../constats/zod-message.constnts/user.validation.message'
+import { ZodUserValidationMessage } from '../constants/zod-message.constants/user.validation.message'
+
 
 
 export const createUserDataValidation=object({
