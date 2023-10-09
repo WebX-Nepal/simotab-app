@@ -11,15 +11,15 @@ const orderSchema=new mongoose.Schema({
         ref:"User",
         required:true
     },
-    shippingAddress:{
-        type:Object,
-        required:true
-    },
     phone:{
         type:String,
         required:true
     },
     paymentStatus:{
+        type:String,
+        required:true
+    },
+    address:{
         type:String,
         required:true
     },

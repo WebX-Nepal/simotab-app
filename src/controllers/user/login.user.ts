@@ -11,6 +11,8 @@ export const loginUserHandler = async (
   try {
     const user = await UserModel.findOne({ email: req.body.email });
 
+
+    console.log(user)
     if (!user) {
       return next(
         new ErrorHandler("user doesnt exist please register again", 404)
@@ -28,6 +30,7 @@ export const loginUserHandler = async (
       success: true,
       message: "user login successfully",
       token: token,
+      role:user.role
     });
   } catch (error: any) {
     throw new ErrorHandler(error.message, 400);

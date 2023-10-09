@@ -8,10 +8,10 @@ import { LoginWithGoogleHandler, createUserHandler, getAllUserHandler, getSingle
 
 const router=express.Router()
 
-router.post('/users',validateDataMiddleware(createUserDataValidation),createUserHandler)
+router.post('/users/register',validateDataMiddleware(createUserDataValidation),createUserHandler)
 router.get('/users/:id',getSingleUserHandler)
 router.get('/users',getAllUserHandler)
-router.post('/users/login',checkAuth,validateDataMiddleware(loginUserDataValidation),loginUserHandler)
-router.post('/users/login-with-google',LoginWithGoogleHandler)
+router.post('/users/login',validateDataMiddleware(loginUserDataValidation),loginUserHandler)
+
 
 export default router  

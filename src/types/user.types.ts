@@ -1,5 +1,6 @@
 
 import { Document } from "mongoose"
+import {Request} from 'express'
 
 export type UserSignInType={
     name:String,
@@ -22,6 +23,7 @@ export interface  UserModelType extends Document {
 
 
 }
+
 
 
 

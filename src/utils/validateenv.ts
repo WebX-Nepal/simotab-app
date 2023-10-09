@@ -9,8 +9,9 @@ export default  cleanEnv(process.env, {
     CLOUDINARY_CLIENT_SECRET:str(),
     GOOGLE_CLIENT_SECRET:str(),
     GOOGLE_CLIENT_ID:str(),
+    STRIPE_API_KEY:str(),
     CLIENT_URL:str(),
-    STRIPE_SECRET_KEY:str()
+
     
     
 });
