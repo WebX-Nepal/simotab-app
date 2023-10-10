@@ -4,6 +4,7 @@ import { ProductModel } from "../../models/product.model";
 import cloudinary from "../../config/cloudinary.config";
 import fs from 'fs'
 import mongoose from "mongoose";
+import { RedisClient } from "../../client/redis";
 export const createProductHandler = async (
   req: Request,
   res: Response,
@@ -37,6 +38,7 @@ export const createProductHandler = async (
     req.body.price=Number(req.body.price)
 
     const product = await ProductModel.create({...req.body,category:new mongoose.Types.ObjectId(req.body.category)});
+    await RedisClient.del(`PRODUCT_CATEGORY-${req.body.category}`)
 
     res.status(200).json({
         success:true,

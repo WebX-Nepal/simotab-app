@@ -5,6 +5,7 @@ import asyncHandler from "express-async-handler";
 import validateMongodbId from "../../utils/validateMongoId";
 import cloudinary from "../../config/cloudinary.config";
 import fs from "fs";
+import { RedisClient } from "../../client/redis";
 
 export const updateCoverUrlProductHandler = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -37,6 +38,8 @@ export const updateCoverUrlProductHandler = asyncHandler(
           },
           { new: true }
         );
+        
+        await RedisClient.del(`PRODUCT_CATEGORY-${product?.category}`)
         res.status(200).json({
           success: true,
           updatedProduct,

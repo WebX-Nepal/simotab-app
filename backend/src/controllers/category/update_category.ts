@@ -5,6 +5,7 @@ import asyncHanlder from "express-async-handler";
 import { CatgoryModel } from "../../models/category.model";
 import validateMongodbId from "../../utils/validateMongoId";
 import { slugifyField } from "../../utils/slugify";
+import { RedisClient } from "../../client/redis";
 
 export const updateCategoryHandler = asyncHanlder(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -20,6 +21,8 @@ export const updateCategoryHandler = asyncHanlder(
         { $set: req.body },
         { new: true }
       );
+
+      await RedisClient.del('ALL_CATEGORIES')
 
       res.status(201).json({
         success: true,

@@ -3,6 +3,7 @@ import ErrorHandler from "../../utils/errorhandler";
 import { ProductModel } from "../../models/product.model";
 import asyncHandler from 'express-async-handler'
 import validateMongodbId from "../../utils/validateMongoId";
+import { RedisClient } from "../../client/redis";
 
 
 export const updateProductHandler=asyncHandler(async(req:Request,res:Response,next:NextFunction)=>{
@@ -18,6 +19,8 @@ export const updateProductHandler=asyncHandler(async(req:Request,res:Response,ne
         }
 
         const updatedProduct=await ProductModel.findByIdAndUpdate(id,{$set:req.body},{new:true})
+        
+        await RedisClient.del(`PRODUCT_CATEGORY-${product?.category}`)
 
         res.status(200).json({
             success:true,

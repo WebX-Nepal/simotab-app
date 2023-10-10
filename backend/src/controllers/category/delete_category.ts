@@ -4,6 +4,7 @@ import ErrorHandler from "../../utils/errorhandler";
 import asyncHanlder from "express-async-handler";
 import { CatgoryModel } from "../../models/category.model";
 import validateMongodbId from "../../utils/validateMongoId";
+import { RedisClient } from "../../client/redis";
 
 
 export const deleteCategoryHandler=asyncHanlder(async(req:Request,res:Response,next:NextFunction)=>{
@@ -13,6 +14,9 @@ export const deleteCategoryHandler=asyncHanlder(async(req:Request,res:Response,n
         validateMongodbId(id,res)
 
         const category=await CatgoryModel.findByIdAndDelete(id)
+
+      await RedisClient.del('ALL_CATEGORIES')
+
 
         res.status(200).json({
             success:true,
