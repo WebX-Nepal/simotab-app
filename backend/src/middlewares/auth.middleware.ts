@@ -45,8 +45,8 @@ export const checkAuth=asyncHandler(async(req:Request,res:Response,next:NextFunc
 
 
 // check role 
-export const checkRole=(...roles:any)=>(req:CustomRequest,res:Response,next:NextFunction)=>{
-    if(roles.includes(req?.user?.role)){
+export const checkRole=(role:string)=>(req:CustomRequest,res:Response,next:NextFunction)=>{
+    if(role===req.user?.role){
         next()
     }else{
         res.status(400).json({
