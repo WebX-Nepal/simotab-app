@@ -7,11 +7,12 @@ import { createProductHandler , deleteProductHandler, getAllProductsHandler, get
 import validateDataMiddleware from '../middlewares/validation.parse'
 import { createProductDataValidation } from '../validation/product.validation'
 import { getsingleProductWithCategoryNameHandler } from '../controllers/products/get_product_with_category'
+import { ParseFormDataIntoInt } from '../middlewares/parse.formdata.midddleware'
 
 const router=express.Router()
 
 
-router.post("/products",upload.single("image"),createProductHandler)
+router.post("/products",upload.single("image"),ParseFormDataIntoInt,validateDataMiddleware(createProductDataValidation),createProductHandler)
 router.get("/products/:id",getsingleProductHandler)
 router.post("/get-product-by-category",getsingleProductWithCategoryNameHandler)
 router.get("/products",filterResults(ProductModel),getAllProductsHandler)
