@@ -1,13 +1,17 @@
 import  { useEffect, useState } from "react";
 import "./cart.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getDataWithoutHeader } from "../../services/axios.service";
 import { Button } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { addToCart, decreaseCart } from "../cart-page/cart_slice";
 // import axios from "axios";
 
 const Single_Cart_Review = () => {
+  const navigate=useNavigate()
+  const dispatch=useDispatch()
 
-  const[number,setNumber]=useState(1)
+  // const[number,setNumber]=useState(1)
   const[product,setProduct]=useState({})
    const {id}=useParams()
   console.log(id)
@@ -22,7 +26,21 @@ const Single_Cart_Review = () => {
   useEffect(()=>{
     getData()
   },[])
- 
+
+  const handleAddToCart=()=>{
+    dispatch(addToCart(product))
+    navigate('/cart')
+  }
+
+   const handleIncreaseProductQuantity = (product) => {
+    dispatch(addToCart(product));
+  };
+  const handleDecreaseProductQuantity = (product) => {
+    dispatch(decreaseCart(product));
+  };
+
+
+
 
 
   return (
@@ -38,23 +56,15 @@ const Single_Cart_Review = () => {
         </div>
 
         <div className="add-items">
-        <Button variant="primary" onClick={()=>setNumber(number-1)} >-</Button >
-          <Button variant="primary"  >{number}</Button >
-          <Button variant="primary" onClick={()=>setNumber(number + 1)} >+</ Button>
+        <Button variant="primary" onClick={()=>handleDecreaseProductQuantity(product)} >-</Button >
+          <Button variant="primary"  >{32}</Button >
+          <Button variant="primary" onClick={()=>handleIncreaseProductQuantity(product)} >+</ Button>
         </div>
 
         <div className="text">
-          <ul className="list">
-           <li> <p>Powered by NFC and QR code</p></li> 
-           <li> <p>iOS & andriod| No App needed</p></li>
-            <li><p>All you need to network</p></li>
-           <li><p>Powered by NFC and QR code</p></li> 
-           <li><p>One off Fee | No subscription</p></li> 
-           <li><p>Free Worldwide Shipping</p></li> 
-           <li><p>In stock ready to ship</p></li> 
-          </ul>
+          <h1>{product.description}</h1>    
         </div>
-        <button className="btn">Add to cart</button>         
+        <button className="btn" onClick={handleAddToCart}>Add to cart</button>         
       </div>
     </div>
     }

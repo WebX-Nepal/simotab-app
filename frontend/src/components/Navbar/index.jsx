@@ -21,7 +21,7 @@ function Navbar() {
         <div className={`${styles.nav}`}>
             {
                 <NavLink to="/" className={`${styles.logo}`}>
-                    <img src="../../../public/image/logo.png" />
+                    <img src="../../../image/logo.png" />
                 </NavLink>}
 
             <ul className={`${styles.navMenu} ${isActive ? styles.active : ""}`}>

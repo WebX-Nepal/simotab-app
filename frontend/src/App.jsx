@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Shop from "./pages/Shop";
 import Single_Cart_Review from "./pages/Single_cart_Review";
 import UnMatchedRoutePage from "./pages/UnMatchedRoutePage";
+import Cart from "./pages/cart-page";
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/shop/:id" element={<Single_Cart_Review/>} />
+
+          <Route path="/cart" element={<Cart/>}/>
+
+
+
         </Route>
         <Route path="*" element={<UnMatchedRoutePage/>}/>
       </Routes>
