@@ -12,3 +12,6 @@ export interface createfaqInterface {
     question:string,
     answer:string
 }
+
+
+

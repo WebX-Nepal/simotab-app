@@ -7,3 +7,6 @@ export interface CategoryModelInterface extends Document {
     createdBy:mongoose.Schema.Types.ObjectId;
 }
 
+
+
+

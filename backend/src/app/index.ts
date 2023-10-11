@@ -48,5 +48,4 @@ passportInitialize()
 // routes
 app.use("/api/v1", allRoute);
 app.use("/auth", oauthroute);
-
 app.use(ErrorHandlerMiddleware);

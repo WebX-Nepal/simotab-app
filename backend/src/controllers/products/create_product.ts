@@ -39,7 +39,6 @@ export const createProductHandler = async (
 
     const product = await ProductModel.create({...req.body,category:new mongoose.Types.ObjectId(req.body.category)});
     await RedisClient.del(`PRODUCT_CATEGORY-${req.body.category}`)
-
     res.status(200).json({
         success:true,
         product

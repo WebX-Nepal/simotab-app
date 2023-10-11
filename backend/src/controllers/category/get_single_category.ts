@@ -8,7 +8,6 @@ import validateMongodbId from "../../utils/validateMongoId";
 
 export const getSingleCategoryHandler=asyncHanlder(async(req:Request,res:Response,next:NextFunction)=>{
     try {
-
         const id=req.params.id
         validateMongodbId(id,res)
 

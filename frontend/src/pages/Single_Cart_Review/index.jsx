@@ -57,7 +57,7 @@ const Single_Cart_Review = () => {
 
         <div className="add-items">
         <Button variant="primary" onClick={()=>handleDecreaseProductQuantity(product)} >-</Button >
-          <Button variant="primary"  >{32}</Button >
+          <Button variant="primary"></Button >
           <Button variant="primary" onClick={()=>handleIncreaseProductQuantity(product)} >+</ Button>
         </div>
 
