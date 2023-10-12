@@ -14,7 +14,7 @@ import { roles } from '../models/user.model'
 const router=express.Router()
 
 
-router.post("/products",checkAuth,checkRole(roles.Admin) as any,upload.single("image"),ParseFormDataIntoInt,validateDataMiddleware(createProductDataValidation),createProductHandler)
+router.post("/products",checkAuth,upload.single("image"),ParseFormDataIntoInt,validateDataMiddleware(createProductDataValidation),createProductHandler)
 router.get("/products/:id",getsingleProductHandler)
 router.post("/get-product-by-category",getsingleProductWithCategoryNameHandler)
 router.get("/products",filterResults(ProductModel),getAllProductsHandler)

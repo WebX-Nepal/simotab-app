@@ -1,0 +1,346 @@
+.section3 {
+  margin-top: 60px;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.homeSection .section3 h1 {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  font-size: 40px;
+}
+.homeSection .section3 h1 span {
+  color: rebeccapurple;
+}
+
+.homeSection .section3 .cards {
+  position: absolute;
+  width: 90%;
+  height: 70vh;
+  border: none;
+  border-radius: 18px;
+  display: flex;
+  color: white;
+}
+
+.homeSection .section3 .cards .left {
+  width: 55%;
+  padding-left: 50px;
+}
+.homeSection .section3 .cards .left h2 {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 80px 25px -30px;
+}
+.homeSection .section3 .cards .right {
+  width: 45%;
+  display: flex;
+  align-items: flex-end;
+  /* justify-content: center; */
+}
+.homeSection .section3 .homeSection .section3_insideImg {
+  display: none;
+}
+
+.homeSection .section3 #card-three .left .texts p {
+  font-size: 40px;
+}
+
+.homeSection .section3 #card-one .left button {
+  max-width: 150px;
+  background: linear-gradient(#5b5c9e, #8f62b4);
+
+  color: white;
+  padding: 15px 22px;
+  border-radius: 20px;
+  margin: -20px 100px;
+}
+
+.homeSection .section3 #card-one .left {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+.homeSection .section3 #card-one .left .texts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.homeSection .section3 #card-one .left .texts p {
+  font-size: 20px;
+}
+
+.homeSection .section3 #card-one .left button {
+  max-width: 150px;
+  background-color: azure;
+  color: #6c22ff;
+  padding: 10px 35px;
+  border-radius: 20px;
+  margin: -360px 20px;
+}
+
+.homeSection .section3 #card-one .right img {
+  width: 300px;
+  margin: 150px 100px;
+}
+.homeSection .section3 #card-one .texts {
+  margin: 50px 20px -20px;
+}
+
+.homeSection .section3 #card-one .card-one_insideImg {
+  display: none;
+}
+
+/* Second card */
+.homeSection .section3 #card-two .left {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.homeSection .section3 #card-two .left .texts {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  margin: 10px 20px;
+}
+
+.homeSection .section3 #card-two .left .texts {
+  margin: 50px 20px -20px 20px;
+  text-align: justify;
+  text-wrap: wrap;
+}
+
+.homeSection .section3 #card-two .left .texts p {
+  font-size: 18px;
+}
+
+.homeSection .section3 #card-two .right img {
+  max-width: 405px;
+  max-height: 460px;
+  margin: 50px 30px;
+}
+.homeSection .section3 #card-two .left button {
+  max-width: 160px;
+  background: white;
+  color: #6c22ff;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: -20px 20px;
+}
+.homeSection .section3 #card-two .right img {
+  min-width: 250px;
+  max-height: 350px;
+  margin: 50px 100px 50px 10px;
+}
+.homeSection .section3 #card-two .card-two_insideImg {
+  display: none;
+}
+
+/* Card 3 */
+.homeSection .section3 #card-three .left {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+.homeSection .section3 #card-three .left .texts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0px -10px;
+}
+
+.homeSection .section3 #card-three .left .texts p {
+  font-size: 18px;
+}
+
+.homeSection .section3 #card-three .left button {
+  max-width: 150px;
+  background-color: azure;
+  color: #6c22ff;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: -360px 20px;
+}
+
+.homeSection .section3 #card-three .right img {
+  width: 275px;
+  height: 460px;
+  margin: 0px 100px;
+}
+.homeSection .section3 #card-three .texts {
+  margin: 50px 20px -20px;
+}
+
+.homeSection .section3 #card-three .card-three_insideImg {
+  display: none;
+}
+
+.homeSection .section3 #card-one {
+  top: 130%;
+  background-color: #c881ff;
+}
+
+.homeSection .section3 #card-two {
+  top: 230%;
+  background-color: #a32cff;
+}
+
+.homeSection .section3 #card-three {
+  top: 250%;
+  background-color: #6c22ff;
+}
+
+@media (max-width: 768px) {
+  .homeSection .section3 {
+    margin-bottom: 0;
+  }
+  .homeSection .section3 h1 {
+    font-size: 32px; /* Decrease font size for smaller screens */
+  }
+  .homeSection .section3 .cards .left {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin: -40px auto 30px;
+  }
+  .homeSection .section3 .cards .right {
+    display: none;
+  }
+
+  .homeSection .section3 .cards .left h2 {
+    font-size: 24px; /* Decrease font size for smaller screens */
+    margin-bottom: -10px;
+  }
+  /* Card 3 */
+  /* .homeSection .section3 #card-three .left{
+        gap: 10px;
+        align-items: center;
+    } */
+  /* .homeSection .section3 #card-three .left .texts {
+      gap: 15px; Adjust gap for smaller screens
+      margin: 20px;
+    } */
+
+  /* .homeSection .section3 #card-three .card-three_insideImg{
+        display: none;
+        width:130px;
+        height:190px;
+        margin: -10px auto;
+    } */
+
+  /* .homeSection .section3 #card-three .left .texts p {
+      font-size: 16px; Decrease font size for smaller screens
+      margin: 35px;
+      text-align: justify;
+    } */
+
+  /* .homeSection .section3 #card-three .left .texts a {
+      font-size: 16px; Decrease font size for smaller screens
+    } */
+
+  /* .homeSection .section3 #card-three .right {
+      display: none; Hide the right-side content on smaller screens
+    } */
+
+  /* Card 2 */
+  .homeSection .section3 #card-two .left {
+    gap: 10px;
+    align-items: center;
+  }
+  .homeSection .section3 #card-two .left .texts {
+    gap: 15px;
+    margin: 15px;
+    text-align: justify;
+  }
+
+  .homeSection .section3 #card-two .card-two_insideImg {
+    display: none;
+    width: 190px;
+    height: 190px;
+  }
+
+  .homeSection .section3 #card-two .left .texts p {
+    font-size: 16px;
+    margin: 30px;
+  }
+
+  .homeSection .section3 #card-two .left .texts a {
+    font-size: 16px;
+  }
+
+  .homeSection .section3 #card-two .right {
+    display: none;
+  }
+  .homeSection .section3 #card-two .btn-3 {
+    margin: 30px;
+  }
+  .homeSection .section3 #card-two {
+    visibility: hidden;
+  }
+  .homeSection .section3 #card-three {
+    visibility: hidden;
+  }
+  /* Card 1 */
+  .homeSection .section3 #card-one .left {
+    gap: 10px;
+    align-items: center;
+  }
+  .homeSection .section3 #card-one .left .texts {
+    gap: 15px; /* Adjust gap for smaller screens */
+    margin: 60px 20px;
+    text-align: justify;
+  }
+
+  .homeSection .section3 #card-one .card-one_insideImg {
+    display: none;
+    width: 130px;
+    max-height: 190px;
+  }
+
+  .homeSection .section3 #card-one .left .texts p {
+    font-size: 16px; /* Decrease font size for smaller screens */
+  }
+
+  .homeSection .section3 #card-one .left .texts a {
+    font-size: 16px; /* Decrease font size for smaller screens */
+  }
+
+  .homeSection .section3 #card-one .right {
+    display: none; /* Hide the right-side content on smaller screens */
+  }
+}
+
+.homeSection .section7 {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 60px;
+  margin-top: 60px;
+}
+.homeSection .section7 h1 {
+  margin: 30px 0;
+  font-family: Magnify;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+@media (min-width: 300px) and (max-width: 590px) {
+  .homeSection .section7 h1 {
+    margin: 30px 0;
+    font-family: Magnify;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.homeSection .section7 .accordion {
+  width: 100%;
+}

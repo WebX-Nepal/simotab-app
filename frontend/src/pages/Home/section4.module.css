@@ -1,0 +1,88 @@
+.section4 {
+  display: flex;
+  padding: 0 60px;
+  flex-direction: column;
+  margin-top: 60px;
+}
+.section4 h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
+.section4 h1 span {
+  color: rebeccapurple;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 35px;
+  justify-content: center;
+  gap: 7em;
+}
+.cards .card {
+  border-radius: 8px;
+}
+.btn1 {
+  color: white;
+  background: linear-gradient(#2e2f84, #652e91);
+  border: none;
+  border: 2px solid rebeccapurple;
+  padding: 4px 23px;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  justify-content: center;
+}
+.card .cardImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 20px;
+  background-color: rgb(211, 215, 219);
+  border-radius: 12px;
+}
+.card img {
+  width: 216px;
+  height: 120px;
+}
+.cardInfo h2 {
+  margin: 15px 10px 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.cardInfo .price {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0px 10px;
+  font-size: 16px;
+}
+.price p {
+  margin: 0;
+}
+.price span {
+  color: rgb(160, 157, 157);
+  text-decoration: line-through;
+}
+@media (max-width: 768px) {
+  .section4 {
+    padding: 0 20px;
+  }
+  .section4 h1 {
+    margin: auto;
+    font-size: 32px;
+  }
+  .section4 .cards {
+    gap: 10px;
+  }
+  .section4 .card {
+    margin: 10px 35px;
+  }
+}
+@media (max-width: 570px) {
+  .cards {
+    align-items: center;
+    justify-content: center;
+  }
+}

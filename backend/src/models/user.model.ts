@@ -34,7 +34,11 @@ const userSchema=new mongoose.Schema<UserModelType>({
     },
     profileImageUrl:{
         type:String
-    }
+    },
+    socialMediaLinks:[{
+        url:String,
+        media:String
+    }]
 
 },{timestamps:true})
 

@@ -1,0 +1,122 @@
+footer {
+  background: linear-gradient(#2e2f84, #652e91);
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 60px;
+  margin-top: 80px;
+}
+
+@media (min-width: 640px) and (max-width: 1250px) {
+  footer {
+    width: 100%;
+    background: linear-gradient(#2e2f84, #652e91);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px 60px;
+    margin-top: 80px;
+  }
+}
+
+footer h1 {
+  /* margin: 0; */
+  text-align: center;
+  font-weight: 700;
+  font-size: 50px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid white;
+}
+
+.footerUp {
+  display: flex;
+  justify-content: space-between;
+}
+.footerUp h2 {
+  margin: 0;
+}
+
+.ft1,
+.ft2,
+.ft3,
+.ft4 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.ft1s,
+.ft2s,
+.ft3s {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ft4s {
+  display: flex;
+  gap: 8px;
+}
+.ft1 .logo {
+  width: 130px;
+  height: 22px;
+}
+.ft1 .icons {
+  display: flex;
+  gap: 10px;
+}
+.ft1 .icons img {
+  width: 20px;
+  height: 20px;
+}
+.ft4 img {
+  width: 153px;
+  height: 48px;
+}
+.footerDown {
+  display: flex;
+  justify-content: space-between;
+}
+.footerDown img {
+  width: 50px;
+  height: 14px;
+}
+footer p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  footer {
+    padding: 20px 20px; /* Adjust padding for smaller screens */
+  }
+
+  footer h1 {
+    font-size: 40px; /* Decrease font size for smaller screens */
+  }
+
+  .footerUp {
+    flex-direction: column; /* Stack content vertically for smaller screens */
+    gap: 20px; /* Reduce gap between elements */
+  }
+
+  .ft1 .logo {
+    width: 100px; /* Adjust the logo size */
+  }
+
+  .ft4 {
+    text-align: start; /* Center align the download app section */
+  }
+  .ft4s {
+    flex-wrap: wrap;
+  }
+  .footerDown {
+    flex-direction: column; /* Stack content vertically for smaller screens */
+    gap: 10px; /* Reduce gap between elements */
+  }
+
+  footer p {
+    font-size: 14px; /* Decrease font size for smaller screens */
+  }
+}

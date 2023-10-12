@@ -9,7 +9,7 @@ import { roles } from '../models/user.model'
 const router=express.Router()
 
 
-router.post("/faqs",checkAuth,checkRole(roles.Admin) as any,validateDataMiddleware(
+router.post("/faqs",checkAuth,validateDataMiddleware(
     CreateFaqDataValidation),createFaqHandler)
 router.get("/faqs/:id",getSingleFaqHandler)
 router.get("/faqs",getAllFaqHandler)

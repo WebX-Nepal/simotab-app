@@ -21,6 +21,18 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { Outlet, useNavigate } from "react-router-dom";
 
+
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PetsIcon from '@mui/icons-material/Pets';
+import KeyIcon from '@mui/icons-material/Key';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import TagIcon from '@mui/icons-material/Tag';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import HelpIcon from '@mui/icons-material/Help';
+import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -119,11 +131,11 @@ export default function Sidebar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            Simot-App
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent"  open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -136,44 +148,46 @@ export default function Sidebar() {
         <Divider />
         <List>
           {[
-            {
-              name: "My-Profile",
-              component: Person2Icon,
-            },
-            { name: "Contacts", component: Person2Icon },
-            { name: "My-Cards", component: Person2Icon },
-            { name: "My-Pets" },
-            { name: "My-Key-Chain", component: Person2Icon },
-            { name: "Booking", component: Person2Icon },
-            { name: "Social-Media-kits", component: Person2Icon },
-            { name: "Buy-Simotap", component: Person2Icon },
-          ].map((text) => (
-            <ListItem key={text.name} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
+            
+            "My-Profile",
+             "Contacts",
+             "My-Cards", 
+            "My-Pets" ,
+             "My-Key-Chain",
+             "Booking",
+             "Social-Media-kits",
+             "Buy-Simotap",
+          ].map((text,index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+              onClick={()=>{
+                  navigate(`/${text.toLowerCase()}`)
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-                onClick={() => {
-                  navigate(`/admin/${text.name.toLowerCase()}`);
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                {/* <li> */}
-                  {/* <text.component
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                    }}
-                  /> */}
-                {/* </li> */}
-                <ListItemText
-                  primary={text.name}
-                  sx={{ opacity: open ? 1 : 0 }}
-                />
-              </ListItemButton>
-            </ListItem>
+                {index === 0 && <Person2Icon /> }
+                {index === 1 && <ContactMailIcon /> }
+                {index === 2 && <DashboardIcon /> }
+                {index === 3 && <PetsIcon /> }
+                {index === 4 && <KeyIcon /> }
+                {index === 5 && <BookmarkIcon /> }
+                {index === 6 && <TagIcon /> }
+                {index === 7 && <ShoppingCartIcon /> }
+              </ListItemIcon>
+              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
           ))}
         </List>
         <Divider />
@@ -194,7 +208,9 @@ export default function Sidebar() {
                     justifyContent: "center",
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index === 0 && <HelpIcon/> }
+                {index === 1 && <SettingsIcon /> }
+                {index === 2 && <LogoutIcon /> }
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>

@@ -11,6 +11,16 @@ export type UserSignInType={
 }
 
 
+interface UserLinkInterface {
+    url:string,
+    media:string
+}
+
+interface OtherLinks{
+    title:string,
+    url:string
+}
+
 
 export interface  UserModelType extends Document {
     name:string,
@@ -19,6 +29,9 @@ export interface  UserModelType extends Document {
     phone:string,
     role:string,
     profileImageUrl:string,
+    socialMediaLinks:UserLinkInterface[],
+    otherLinks:OtherLinks[]
+
     comparePassword:(password:string)=>Promise<boolean>
 
 

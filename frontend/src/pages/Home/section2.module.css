@@ -1,0 +1,159 @@
+.section2 {
+  display: flex;
+  padding: 0px 60px;
+  gap: 80px;
+  width: 98vw;
+  /* margin-top: -50px; */
+}
+.left {
+  width: 40%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  margin: 50px 100px 20px 0px;
+}
+.left h1 {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 600;
+  color: #222;
+  /* margin-bottom: 30px; */
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.left p {
+  font-size: 20px;
+  color: #2d2d2d;
+  font-weight: 400;
+  /* margin: 10px 0px 20px; */
+}
+.left button {
+  width: fit-content;
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 42px;
+  border-radius: 50px;
+  color: rebeccapurple;
+  border: 3px solid rebeccapurple;
+  cursor: pointer;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+.right {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 70px;
+  overflow: hidden;
+}
+
+.right video {
+  transform: scale(1.05);
+  max-width: 600px;
+  height: fit-content;
+  background-color: rgb(209, 202, 202);
+  border-radius: 16px;
+}
+
+/* Responsive part  */
+@media (max-width: 768px) {
+  .section2 {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse; /* Stack the elements on top of each other */
+    align-items: center;
+    padding: 20px;
+  }
+
+  .left {
+    width: 100%; /* Take up most of the screen width */
+    text-align: center;
+    margin: 20px auto; /* Adjust spacing */
+  }
+
+  .left h1 {
+    font-size: 28px;
+    text-align: justify; /* Decrease font size for smaller screens */
+  }
+
+  .left button {
+    padding: 10px 30px; /* Adjust button padding */
+    font-size: 12px; /* Decrease font size for smaller screens */
+    margin: 10px auto;
+    text-align: justify;
+  }
+  .text {
+    margin: 260px auto;
+  }
+  .right {
+    display: flex;
+    max-width: 50%; /* Take up most of the screen width */
+    position: absolute;
+    top: 80px;
+    margin: 40px auto;
+  }
+
+  .right video {
+    margin: 53px 0;
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section2 {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse; /* Stack the elements on top of each other */
+    align-items: center;
+  }
+
+  .left {
+    width: 100%; /* Take up most of the screen width */
+    text-align: center;
+    margin: 20px auto; /* Adjust spacing */
+    gap: 40px;
+  }
+
+  .left h1 {
+    font-size: 28px;
+    text-align: justify; /* Decrease font size for smaller screens */
+  }
+
+  .left button {
+    padding: 10px 30px; /* Adjust button padding */
+    font-size: 12px; /* Decrease font size for smaller screens */
+    margin: 10px auto;
+    text-align: justify;
+  }
+  .text {
+    margin: 250px auto;
+  }
+  .right {
+    display: flex;
+    max-width: 40%; /* Take up most of the screen width */
+    position: absolute;
+    top: 90px;
+    margin: 30px auto;
+  }
+
+  .right video {
+    width: 100%; /* Ensure video doesn't overflow */
+  }
+}
+
+@media (max-width: 600px) {
+  .right video {
+    width: 100vw; /* Ensure video doesn't overflow */
+  }
+}

@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./shopSection.module.css";
-import { useEffect, useState } from "react";
 import { getData, postDataWithHeader } from "../../../services/axios.service";
 import Products from "../../cards/Product/Product.card";
 
@@ -15,13 +15,25 @@ function ShopSection() {
   const getCatgories = async () => {
     const response = await getData("categories", token);
     setcategories(response.categories);
+    console.log(products);
   };
   useEffect(() => {
     getCatgories();
+    const id = categories.map((cat, index) => {
+      if (index === 1) return cat._id;
+    });
+    if (id) {
+      HandleCategory(id);
+    }
   }, []);
 
   const HandleCategory = async (id) => {
-    const response = await postDataWithHeader("get-product-by-category", { category: id },token);
+    console.log("i got clicked");
+    const response = await postDataWithHeader(
+      "get-product-by-category",
+      { category: id },
+      token
+    );
     setproducts(response.products);
   };
 
@@ -31,9 +43,9 @@ function ShopSection() {
         <div className={styles.sectionSearch}>
           <div className={styles.scrollContainer}>
             {categories &&
-              categories.map((category,index) => {
-                return (
-                    index===0?  <button
+              categories.map((category, index) => {
+                return index === 0 ? (
+                  <button
                     autoFocus
                     key={category._id}
                     onClick={() => {
@@ -41,7 +53,9 @@ function ShopSection() {
                     }}
                   >
                     {category.name}
-                  </button>:<button
+                  </button>
+                ) : (
+                  <button
                     key={category._id}
                     onClick={() => {
                       HandleCategory(category._id);
@@ -49,7 +63,6 @@ function ShopSection() {
                   >
                     {category.name}
                   </button>
-                 
                 );
               })}
           </div>
