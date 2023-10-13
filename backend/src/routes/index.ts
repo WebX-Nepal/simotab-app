@@ -5,6 +5,7 @@ import productRoute from './product.route'
 import faqRoute from './faq.route'
 import contactRoute from './contact.route'
 import testinomialRoute from './testinomial.route'
+import otherLinkRoute from './otherLink.route'
 
 
 const router=express.Router()
@@ -14,6 +15,7 @@ router.use('/',productRoute)
 router.use('/',faqRoute)
 router.use('/',contactRoute)
 router.use('/',testinomialRoute)
+router.use('/',otherLinkRoute)
 
 
 export default router  

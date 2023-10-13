@@ -17,21 +17,21 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+
 import { Outlet, useNavigate } from "react-router-dom";
 
-
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import PetsIcon from '@mui/icons-material/Pets';
-import KeyIcon from '@mui/icons-material/Key';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import TagIcon from '@mui/icons-material/Tag';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import HelpIcon from '@mui/icons-material/Help';
-import SettingsIcon from '@mui/icons-material/Settings';
-import LogoutIcon from '@mui/icons-material/Logout';
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PetsIcon from "@mui/icons-material/Pets";
+import KeyIcon from "@mui/icons-material/Key";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import TagIcon from "@mui/icons-material/Tag";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import HelpIcon from "@mui/icons-material/Help";
+import SettingsIcon from "@mui/icons-material/Settings";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useDispatch } from "react-redux";
+import { logedOut } from "../../pages/signin/auth.Slice";
 
 const drawerWidth = 240;
 
@@ -101,7 +101,9 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Sidebar() {
+
   const navigate = useNavigate();
+  const dispatch=useDispatch()
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -112,6 +114,11 @@ export default function Sidebar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleLogout=()=>{
+    dispatch(logedOut())
+    navigate('/signin')
+  }
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -135,7 +142,7 @@ export default function Sidebar() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent"  open={open}>
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
@@ -148,46 +155,45 @@ export default function Sidebar() {
         <Divider />
         <List>
           {[
-            
             "My-Profile",
-             "Contacts",
-             "My-Cards", 
-            "My-Pets" ,
-             "My-Key-Chain",
-             "Booking",
-             "Social-Media-kits",
-             "Buy-Simotap",
-          ].map((text,index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-              onClick={()=>{
-                  navigate(`/${text.toLowerCase()}`)
-              }}
-            >
-              <ListItemIcon
+            "Contacts",
+            "My-Cards",
+            "My-Pets",
+            "My-Key-Chain",
+            "Booking",
+            "Social-Media-kits",
+            "Buy-Simotap",
+          ].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
+                }}
+                onClick={() => {
+                  navigate(`/admin/${text.toLowerCase()}`);
                 }}
               >
-                {index === 0 && <Person2Icon /> }
-                {index === 1 && <ContactMailIcon /> }
-                {index === 2 && <DashboardIcon /> }
-                {index === 3 && <PetsIcon /> }
-                {index === 4 && <KeyIcon /> }
-                {index === 5 && <BookmarkIcon /> }
-                {index === 6 && <TagIcon /> }
-                {index === 7 && <ShoppingCartIcon /> }
-              </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-          </ListItem>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  {index === 0 && <Person2Icon />}
+                  {index === 1 && <ContactMailIcon />}
+                  {index === 2 && <DashboardIcon />}
+                  {index === 3 && <PetsIcon />}
+                  {index === 4 && <KeyIcon />}
+                  {index === 5 && <BookmarkIcon />}
+                  {index === 6 && <TagIcon />}
+                  {index === 7 && <ShoppingCartIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
           ))}
         </List>
         <Divider />
@@ -200,6 +206,7 @@ export default function Sidebar() {
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
+                onClick={index===2?handleLogout:console.log("nepal")}
               >
                 <ListItemIcon
                   sx={{
@@ -208,9 +215,9 @@ export default function Sidebar() {
                     justifyContent: "center",
                   }}
                 >
-                {index === 0 && <HelpIcon/> }
-                {index === 1 && <SettingsIcon /> }
-                {index === 2 && <LogoutIcon /> }
+                  {index === 0 && <HelpIcon />}
+                  {index === 1 && <SettingsIcon />}
+                  {index === 2 && <LogoutIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>

@@ -10,7 +10,7 @@ const Section3 = () => {
 
                 <div className={styles.card}>
                     <Link to="/shop">   <div className={styles.cardImg}>
-                        <img src="../../../public/assets/Rectangle 32.png" alt="card" />
+                        <img src="../../../assets/Rectangle 32.png" alt="card" />
                     </div>
                         <div className={styles.cardInfo}>
                             <h2>Purchase your card</h2>
@@ -20,7 +20,7 @@ const Section3 = () => {
 
                 <div className={styles.card}>
                     <Link to="/profile"><div className={styles.cardImg}>
-                        <img src="../../../public/assets/Rectangle 33.png" alt="card" />
+                        <img src="../../../assets/Rectangle 33.png" alt="card" />
                     </div>
                         <div className={styles.cardInfo}>
                             <h2>Setup your profile</h2>
@@ -30,7 +30,7 @@ const Section3 = () => {
 
                 <div className={styles.card}>
                     <Link to="/cart"><div className={styles.cardImg}>
-                        <img src="../../../public/assets/Rectangle 34.png" alt="card" />
+                        <img src="../../../assets/Rectangle 34.png" alt="card" />
                     </div>
                         <div className={styles.cardInfo}>
                             <h2>Share your information</h2>

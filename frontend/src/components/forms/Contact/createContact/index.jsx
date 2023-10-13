@@ -1,6 +1,15 @@
 import { object, string } from "yup";
 import { ErrorMessage, Field, Formik, Form } from "formik";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { postDataWithHeader } from "../../../../services/axios.service";
+import { errorToast, successToast } from "../../../../services/toast.service";
+
 const CreateContact = () => {
+    const navigate=useNavigate()
+    const {token}=useSelector((state)=>{
+        return state.auth
+    })
   const initialValue = {
     name: "",
     email: "",
@@ -12,11 +21,24 @@ const CreateContact = () => {
     phone: string().required("Phone Number Field is required"),
   });
 
-  const handleContactSubmit = (values) => {
+  const handleContactSubmit = async(values) => {
     console.log(values);
+    const response=await postDataWithHeader('contacts',values,token)
+
+    if(response.success){
+        successToast(response.message)
+        navigate('/admin/contacts')
+    }else{
+        errorToast(response.message?response.message:'unable to Post the data')
+    }
+
+    
+  
+
+
   };
   return (
-    <div>
+    <div className="max-w-md mx-auto mb-2 mt-10">
       <Formik
         initialValues={initialValue}
         validationSchema={ContactValidation}

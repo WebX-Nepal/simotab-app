@@ -10,7 +10,7 @@ export const createContactDataValidation=object({
     }),
     email:string({
         invalid_type_error:ZodContactValidationMessage.INVALID_EMAIL_MESSAGE,
-    }).email().optional(),
+    }).email(),
     phone:string({
         required_error:ZodContactValidationMessage.REQUIRED_PHONE_MESSAGE,
         invalid_type_error:ZodContactValidationMessage.INVALID_PHONE_MESSAGE,

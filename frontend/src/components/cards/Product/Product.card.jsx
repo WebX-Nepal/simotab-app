@@ -4,12 +4,6 @@ import { Link } from "react-router-dom";
 import { object } from "prop-types";
 
 const Products = ({ product }) => {
-
-
-
-
-
-
   return (
     <div className="cards">
       <div className="card">

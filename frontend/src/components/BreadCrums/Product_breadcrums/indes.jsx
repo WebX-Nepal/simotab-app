@@ -14,8 +14,17 @@ function ShopSection() {
 
   const getCatgories = async () => {
     const response = await getData("categories", token);
-    setcategories(response.categories);
-    console.log(products);
+    if(response.success){
+      setcategories(response.categories);
+    }
+    const data = await postDataWithHeader(
+      "get-product-by-category",
+      { category: response.categories[0]._id },
+      token
+    );
+    if(data.success){
+      setproducts(data.products);
+    }
   };
   useEffect(() => {
     getCatgories();

@@ -31,7 +31,7 @@ export const updateContactHandler = async (
 
     res.status(200).json({
       success: true,
-      updContact,
+      message:"contact updated successfully"
     });
   } catch (error: any) {
     throw new ErrorHandler(error.message, 500);

@@ -26,14 +26,17 @@ export const passportInitialize = () => {
 
 
         console.log(existUser,"owowowo")
+        console.log(profile)
         
         if(existUser){
-            cb(null, profile);
+          cb(null, profile);
         }
         else{
+          console.log(profile)
             const data={
                 name:profile['_json'].name,
                 email:profile['_json'].email,
+                profileImageUrl:profile['_json'].picture,
             }
             const user=new UserModel(data);
             console.log(user,"naya")

@@ -21,7 +21,7 @@ function Section2() {
                     </div>
                 </div>
                 <div className={styles.right}>
-                    <video src='../../../public/assets/video.mp4' muted autoPlay></video>
+                    <video src='../../../assets/video.mp4' muted autoPlay></video>
                 </div>
             </section>
         </div>

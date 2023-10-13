@@ -1,3 +1,4 @@
+import Footer from "../../components/footer/Footer";
 import styles from "./aboutUsSection.module.css";
 
 function AboutUsSection() {
@@ -26,6 +27,7 @@ function AboutUsSection() {
                     <p className='my-6'>Our Mission at Simotap is to transform the way people and businesses interact with the world around them through the limitless potential of NFC technology. We envision a future where every physical object can be a gateway to a digital experience, where a simple tap connects individuals to information, services, and experiences effortlessly. By pioneering innovative NFC solutions, we strive to empower businesses to engage their customers in more meaningful ways, enhance security and access control, and streamline everyday operations.</p>
                 </div>
             </div>
+            <Footer/>
         </>
 
     )

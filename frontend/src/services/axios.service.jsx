@@ -42,6 +42,7 @@ export const getData=async(url,token)=>{
         console.log(error)
     }
 }
+
 export const deleteData=async(url,token)=>{
 
     try {
@@ -65,4 +66,18 @@ export const getDataWithoutHeader=async(url)=>{
         console.log(error)
     }
 
+}
+
+
+export const updateDataWithHeader=async(url,data,token)=>{
+    try {
+        const response=await axios.patch(`${serverUrl}/${url}`,data,{
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
 }

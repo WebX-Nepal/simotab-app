@@ -12,10 +12,16 @@ import MyProfile from "./pages/admin/My-Profile";
 import MyCards from "./pages/admin/My-Cards";
 import MyKeyChain from "./pages/admin/My-key-chain";
 import MyPets from "./pages/admin/My-Pets";
-import HomeSection from "./pages/home/HomeSection";
 import AboutUsSection from "./pages/aboutUs/AboutUsSection";
 import Contact from "./pages/admin/Contacts";
-// import Footer from "./components/footer/Footer";
+import EditProfile from "./pages/admin/My-Profile/Edit-Profile";
+import HomeSection from "./pages/Home/HomeSection";
+import UpdateContact from "./components/forms/Contact/updateContact";
+import UpdateLink from "./components/forms/Link/updateLink";
+import CreateContact from './components/forms/Contact/createContact'
+import CreateLink from "./components/forms/Link/createLink";
+import CreateProduct from "./components/forms/Product/create_product";
+
 
 function App() {
   return (
@@ -41,6 +47,13 @@ function App() {
           <Route path="/admin/my-key-chain" element={<MyKeyChain/>}/>
           <Route path="/admin/my-pets" element={<MyPets/>}/>
           <Route path="/admin/contacts" element={<Contact/>}/>
+          <Route path="/admin/contacts/:id" element={<UpdateContact/>}/>
+          <Route path="/admin/create-contact-form" element={<CreateContact/>}/>
+          <Route path="/admin/edit-profile" element={<EditProfile/>}/>
+          <Route path="/admin/edit-profile/:id" element={<UpdateLink/>}/>
+          <Route path="/admin/create-link" element={<CreateLink/>}/>
+          <Route path="/admin/test" element={<CreateProduct/>}/>
+
         </Route>
 
 
@@ -48,7 +61,6 @@ function App() {
         <Route path="*" element={<UnMatchedRoutePage />} />
         
       </Routes>
-      {/* <Footer/> */}
     </>
   );
 }

@@ -5,7 +5,6 @@ const PrivateRoute = () => {
     const role=useSelector((state)=>{
         return state.auth.role
       })
-      console.log(role)
   return (
     <div>
         {

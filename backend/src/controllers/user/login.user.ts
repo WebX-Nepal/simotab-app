@@ -30,7 +30,8 @@ export const loginUserHandler = async (
       success: true,
       message: "user login successfully",
       token: token,
-      role:user.role
+      role:user.role,
+      userId:user.id
     });
   } catch (error: any) {
     throw new ErrorHandler(error.message, 400);

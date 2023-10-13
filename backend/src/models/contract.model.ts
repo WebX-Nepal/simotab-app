@@ -9,16 +9,17 @@ const contactSchema=new mongoose.Schema<ContactModelInterface>({
     },
     email:{
         type:String,
-        unique:true
-    },
-    phone:{
-        type:String,
         unique:true,
         required:true
     },
-    createdBy:{
+    phone:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    user:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"User"
+        ref:"User",
     }
 
 }, {timestamps:true})

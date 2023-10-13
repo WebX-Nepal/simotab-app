@@ -21,13 +21,14 @@ export const filterResults =
       // searching
       let searchme: any = req.query.keyword
         ? {
-            title: {
+            name: {
               $regex: req.query.keyword,
               $options: "i",
             },
           }
         : {};
-      appendFiterQuery.find({ ...searchme });
+     const me = appendFiterQuery.find({ ...searchme });
+
 
       // selection of the fields
       if (req.query.select) {
@@ -69,17 +70,21 @@ export const filterResults =
 
       if (data.length > 0) {
         res.filterData = {
-          sucess: true,
+          success: true,
           data,
           total,
           pagination,
         };
         next();
       } else {
-        res.status(400).json({
-          sucess: true,
-          message: "no data found",
-        });
+        res.filterData = {
+          success: true,
+          data:[]
+         
+        };
+
+
+     
       }
     } catch (error: any) {
       throw new Error(error);

@@ -27,18 +27,24 @@ const userSchema=new mongoose.Schema<UserModelType>({
     },
     phone:{
         type:String,
+        unique:true
     },
     role:{
         type:String,
         default:roles.User
     },
     profileImageUrl:{
-        type:String
+        url:String,
+        public_id:String   
+    },
+    coverImageUrl:{
+        url:String,
+        public_id:String      
     },
     socialMediaLinks:[{
         url:String,
         media:String
-    }]
+    }], 
 
 },{timestamps:true})
 

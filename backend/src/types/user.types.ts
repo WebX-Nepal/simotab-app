@@ -15,10 +15,10 @@ interface UserLinkInterface {
     url:string,
     media:string
 }
+interface Image {
+    url:string,
+    public_id:string
 
-interface OtherLinks{
-    title:string,
-    url:string
 }
 
 
@@ -28,9 +28,9 @@ export interface  UserModelType extends Document {
     password:string,
     phone:string,
     role:string,
-    profileImageUrl:string,
+    profileImageUrl:Image,
     socialMediaLinks:UserLinkInterface[],
-    otherLinks:OtherLinks[]
+    coverImageUrl:Image,
 
     comparePassword:(password:string)=>Promise<boolean>
 

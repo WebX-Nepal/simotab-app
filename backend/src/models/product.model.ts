@@ -10,7 +10,6 @@ const productSchema=new mongoose.Schema<ProductModelInterface>({
     description:{
         type:String,
         required:true
-
     },
     discount:{
         type:Number,
