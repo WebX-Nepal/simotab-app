@@ -5,7 +5,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -14,7 +13,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { addData } from '../../services/axios.service';
 import { errorToast, successToast } from '../../services/toast.service';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -28,7 +27,6 @@ const defaultTheme = createTheme();
 
 
 export default function SignUp() {
-    const navigate=useNavigate()
 
     const [data,setdata]=useState({
         email:"",
@@ -47,7 +45,6 @@ export default function SignUp() {
 
  const handleSubmit=async(e)=>{
     e.preventDefault()
-    console.log(data)
    const response=await  addData('users/register', {
         email:data.email,
         name:`${data.firstName} ${data.lastName}`,

@@ -16,6 +16,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import Cookies from "js-cookie";
 import ListItemText from "@mui/material/ListItemText";
 
 import { Outlet, useNavigate } from "react-router-dom";
@@ -117,7 +118,12 @@ export default function Sidebar() {
 
   const handleLogout=()=>{
     dispatch(logedOut())
+    Cookies.set("simotapp_jwtToken",""),
+    Cookies.set("simotapp_roles",""),
+    Cookies.set("simotapp_isLoggedIn",""),
+    Cookies.set("simotapp_UserId","")
     navigate('/signin')
+
   }
 
   return (

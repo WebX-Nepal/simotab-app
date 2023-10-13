@@ -31,10 +31,12 @@ router.get('/google/callback', async(req, res, next) => {
         
         const newUser=await UserModel.findOne(user.email)
         if(newUser){
+            console.log(newUser._id)
             const token= generate_access_token(newUser)
             res.cookie('simotapp_jwtToken', token);
             res.cookie('simotapp_isLoggedIn', true);
             res.cookie('simotapp_roles', newUser.role);
+            res.cookie('simotapp_UserId',newUser._id.toString());
             res.redirect(`${process.env.CLIENT_URL}`);
             next()
 

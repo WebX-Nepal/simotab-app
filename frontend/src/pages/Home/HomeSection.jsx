@@ -14,9 +14,13 @@ import Accordion from "./Accordion";
 import Section8 from "./Section8";
 import { getDataWithoutHeader } from "../../services/axios.service";
 import Footer from "../../components/footer/Footer";
+import Cookies from 'js-cookie'
+import { useDispatch } from "react-redux";
+import { logedin } from "../signin/auth.Slice";
 
 function HomeSection() {
   const [accordions, setAccordions] = useState([]);
+  const dispatch=useDispatch()
 
   const getApiFaqData = async () => {
     const response = await getDataWithoutHeader("faqs");
@@ -28,6 +32,16 @@ function HomeSection() {
   };
   useEffect(() => {
     getApiFaqData();
+    const data={
+      token:Cookies.get("simotapp_jwtToken"),
+      role:Cookies.get("simotapp_roles"),
+      isLogedInStatus:Cookies.get("simotapp_isLoggedIn"),
+      userId:Cookies.get("simotapp_UserId")
+    }
+    if(data.token&&data.role&&data.isLogedInStatus&&data.userId){
+      dispatch(logedin(data))
+      console.log(data)
+    }    
   },[])
     
 

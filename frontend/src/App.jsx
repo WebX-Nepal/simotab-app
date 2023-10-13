@@ -21,6 +21,7 @@ import UpdateLink from "./components/forms/Link/updateLink";
 import CreateContact from './components/forms/Contact/createContact'
 import CreateLink from "./components/forms/Link/createLink";
 import CreateProduct from "./components/forms/Product/create_product";
+import SecureRoute from "./secure_routes/login_user_only";
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
 
         {/* admin routes */}
 
+
+        <Route path="/admin" element={<SecureRoute/>}>
         <Route path="/admin" element={<Sidebar/>}>
           <Route path="/admin/my-profile" element={<MyProfile/>}/>
           <Route path="/admin/my-cards" element={<MyCards/>}/>
@@ -54,6 +57,7 @@ function App() {
           <Route path="/admin/create-link" element={<CreateLink/>}/>
           <Route path="/admin/test" element={<CreateProduct/>}/>
 
+        </Route>
         </Route>
 
 
