@@ -1,125 +1,89 @@
+.image img {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 400px;
+  /* max-width: fit-content; */
+}
+
+.product-container {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
 .cart-container {
-    height: 100vh;
-    margin:-10px 250px;
-    background: transparent;
-  }
-  
-  .product-container {
-    position: relative;
-    height: 600px;
-    width: 800px;
-  }
-  
-  .product-image {
-    margin: 70px 20px 20px;
-    max-height: 220px;
-    max-width: 380px;
-  }
-  .product-image1{
-    height: 100px;
-    max-width: 450px;
-    position: absolute;
-    top: 270px;
-    left:-20px;
-    height: 300px;
-  }
-  
-  .text-container {
-    position: absolute;
-    top: 50px;
-    left: 400px;
-    height: 170px;
-    width: 200px;
-  }
-  
-  .text-container h4 {
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 5px;
-  }
-  
-  .text-container span {
-    font-size: 20px;
-    opacity: 0.8;
-  }
-  .add-items {
-    position: absolute;
-    top: 120px;
-    left: 400px;
-    display: flex;
-    gap: 18px;
-    margin: 10px 0px;
-  }
-  .add-items span {
-    font-size: 19px;
-    margin: 2px;
-  }
-  
-  .text {
-    position: absolute;
-    top: 190px;
-    left: 410px;
-  }
-  .list p{
-    list-style-type: square;
-  
-  }
-  .list li{
-  margin: 8px;
-  }
-  .list p {
-    font-size: 16px;
-  }
-  .btn {
-    position: absolute;
-    top:400px;
-    left: 425px;
-    width: 200px;
-    margin: 18px 13px;
-    font-size: 14px;
-    font-weight: 300;
-    padding: 10px 60px;
-    border-radius: 15px;
-    background-color: #2d2f84;
-    border: 0;
-    color: #ffffff;
-  }
-  
-  @media (max-width:768px) {
-    .cart-container{
-      max-width: 300px;
-      margin: 20px 20px;
-  
-    }
-      .product-container{
-        display: block;
-        margin: auto;
-        margin: -50px -10px 20px;
-      }
-  
-      .product-container .product-image{
-          min-width: 200px;
-      }
-      .product-container .product-image1{
-        min-width: 200px;
-    }
-    .text-container{
-      margin-top: 25px;
-    }
-      .text-container h4{
-        display: inline-block;
-        font-size: 20px;
-      }
-      .text-container span{
-        display: inline-block;
-        font-size: 15px;
-      }
-      .text .list p{
-        font-size: 12px;
-        display:block;
-      }
-      .btn{
-        margin: 5px 0px 0px -10px;
-      }
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 100px 0;
+  padding: 0 80px;
+}
+
+.add-items {
+  display: flex;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text-container h4 {
+  color: #000;
+
+  font-family: ABeeZee;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.text-container span {
+  color: #464646;
+
+  font-family: ABeeZee;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.text-container h1 {
+  color: #414141;
+
+  font-family: ABeeZee;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.add-items {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+}
+.add-items button {
+  background-color: #d9d9d9;
+  font-size: 20px;
+}
+
+.btn {
+  color: #fff;
+  display: flex;
+  width: 263px;
+  height: 50px;
+  padding: 9px 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: linear-gradient(225deg, #2d2f84 0%, #662e91 100%);
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+}

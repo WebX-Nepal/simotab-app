@@ -51,9 +51,11 @@ a {
   align-items: center;
 }
 
-/* .bts button {
-  margin-left: 20em;
-} */
+.signUpBtn {
+  position: absolute;
+  right: 0;
+  top: -25px;
+}
 
 /* ul  */
 .navMenu {
@@ -61,7 +63,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 100px;
+  gap: 60px;
+  margin-right: 20em;
 }
 
 @media (max-width: 939px) {
@@ -116,6 +119,13 @@ li:hover {
   .hamburger {
     display: block;
     cursor: pointer;
+  }
+  .signUpBtn {
+    margin: 40px auto;
+    max-width: 50%;
+    padding: 0;
+    top: 130px;
+    left: 0;
   }
 
   .bar {
