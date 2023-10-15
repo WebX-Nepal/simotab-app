@@ -1,7 +1,7 @@
 .section5 {
   display: flex;
   gap: 60px;
-  padding: 0px 60px;
+  padding: 0px 80px;
   margin-top: 80px;
 }
 .section5 .left {
@@ -57,7 +57,7 @@
     flex-direction: column-reverse; /* Stack elements vertically on smaller screens */
     align-items: center; /* Center-align elements horizontally */
     text-align: center; /* Center-align text */
-    padding: 0 20px;
+    padding: 0 80px;
     gap: 0px;
   }
 

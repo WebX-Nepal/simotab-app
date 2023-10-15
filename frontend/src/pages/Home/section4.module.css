@@ -1,6 +1,6 @@
 .section4 {
   display: flex;
-  padding: 0 60px;
+  padding: 0 80px;
   flex-direction: column;
   margin-top: 60px;
 }
@@ -14,10 +14,9 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 35px;
-  justify-content: center;
-  gap: 7em;
+  gap: 1em;
 }
 .cards .card {
   border-radius: 8px;
@@ -67,7 +66,7 @@
 }
 @media (max-width: 768px) {
   .section4 {
-    padding: 0 20px;
+    padding: 0 80px;
   }
   .section4 h1 {
     margin: auto;

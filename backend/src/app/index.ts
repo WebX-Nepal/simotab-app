@@ -11,7 +11,7 @@ import { connectdb } from "../config/connect.database";
 import allRoute from "../routes/index";
 import helmet from "helmet";
 import hpp from "hpp";
-import './passport'
+// import './passport'
 import oauthroute from '../routes/oauth.route'
 import expressSession from 'express-session';
 import { passportInitialize } from "../middlewares/passport.middleware";
