@@ -3,7 +3,7 @@ import "./cart.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { getDataWithoutHeader } from "../../services/axios.service";
 import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart, decreaseCart } from "../cart-page/cart_slice";
 // import axios from "axios";
 
@@ -14,12 +14,17 @@ const Single_Cart_Review = () => {
   // const[number,setNumber]=useState(1)
   const[product,setProduct]=useState({})
    const {id}=useParams()
-  console.log(id)
 
+   const cart = useSelector((state) => {
+    return state.cart;
+  });
+  const me=cart.simot_app_cartItems.find((item)=>{
+    if(item._id===id) return item
+  })
+  console.log(me)
 
   const getData=async()=>{
     const response=await  getDataWithoutHeader(`products/${id}`)
-    console.log(response)
     setProduct(response.product)
   }
 
@@ -28,7 +33,6 @@ const Single_Cart_Review = () => {
   },[])
 
   const handleAddToCart=()=>{
-    dispatch(addToCart(product))
     navigate('/cart')
   }
 
@@ -58,6 +62,7 @@ const Single_Cart_Review = () => {
         <div className="add-items">
         <Button variant="primary" onClick={()=>handleDecreaseProductQuantity(product)} >-</Button >
           <Button variant="primary"></Button >
+          <div className="">{me.cartQuantity}</div>
           <Button variant="primary" onClick={()=>handleIncreaseProductQuantity(product)} >+</ Button>
         </div>
 

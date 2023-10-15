@@ -23,11 +23,14 @@
 }
 .card-title{
     font-size: 18px;
-    margin:20px;
+    margin:0px 20px;
+    font-family:  monospace;
+    
 }
 .card-text{
     font-size: 16px;
-    margin:20px 55px;
+    margin:10px 55px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* .btn{

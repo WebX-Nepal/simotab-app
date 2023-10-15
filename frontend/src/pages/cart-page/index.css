@@ -1,6 +1,7 @@
 /* Cart */
 .cart-container {
-    padding: 2rem 4rem;
+    margin: 10px 20px;
+
   }
   .cart-container h2 {
     font-weight: 400;
@@ -8,7 +9,7 @@
     text-align: center;
   }
   .cart-container .titles {
-    margin: 2rem 0 1rem 0;
+    margin: 2rem 0 1rem 20px;
   }
   .cart-container .titles h3 {
     font-size: 14px;
@@ -28,6 +29,7 @@
   }
   .cart-container .titles .product-title {
     padding-left: 0.5rem;
+    margin: 200px;
   }
   .cart-container .titles .total {
     padding-right: 0.5rem;

@@ -3,7 +3,7 @@ import { logo2, login, playstore, applestore, fb_ic, ig_ic, tt_ic, yt_ic, li_ic 
 const Footer = () => {
 
     return (
-        <div className="footer">
+        <div >
             <footer className={styles.footer} id="footer" >
                 <h1>Welcome to Digital World.</h1>
                 <div className={styles.footerUp}>

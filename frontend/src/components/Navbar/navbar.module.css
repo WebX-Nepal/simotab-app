@@ -35,7 +35,8 @@
     height: 70px;
     background-color: rgba(197, 197, 197, 0.2);
     backdrop-filter: blur(4px);
-    padding: 0 60px;
+    padding: 0 10px;
+    margin: 0 -39px;
     position: sticky;
     top: 0;
     left: 0;

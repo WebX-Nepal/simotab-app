@@ -38,11 +38,11 @@ const Cart = () => {
 
   return (
     <>
-      <div className="cart-container">
+      <div className="cart-container ms-7">
         <h2>Shopping Cart</h2>
         {cart.simot_app_cartItems.length === 0 ? (
-          <Card>
-            <CardContent>
+          <Card className="ms-4">
+            <CardContent className="MS-4">
               <div className="cart-empty">
                 <p>Your Cart Is Empty</p>
                 <div className="continue-shopping">

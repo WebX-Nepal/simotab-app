@@ -2,11 +2,18 @@ import "./product.card.css";
 import { Tilt } from "react-tilt";
 import { Link } from "react-router-dom";
 import { object } from "prop-types";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../pages/cart-page/cart_slice";
 
 const Products = ({ product }) => {
+  const dispatch=useDispatch()
+  const handleAddClick=()=>{
+    dispatch(addToCart(product))
+
+  }
   return (
-    <div className="cards">
-      <div className="card">
+    <div className="cards  ">
+      <div className="card flex justify-center items-center flex-col">
         <Tilt
           glareEnable={true}
           tiltMaxAngleX={20}
@@ -16,19 +23,24 @@ const Products = ({ product }) => {
         >
           <img
             src={product.thumbnailUrl.url}
-            className="card-img-top image"
+            className="card-img-top image h-[300px] w-[400px]"
             alt="card image"
           />
         </Tilt>
-        <div className="text-area">
-          <div className="card-body">
+        <div className="text-area mt-[50px]">
+          <div className="card-body ms-[40%] w-full
+          ">
             <h5 className="card-title">{product.name}</h5>
-            <p className="card-text">{product.price}</p>
+            <p className="card-text flex flex-col">
+              <del>Rs {product.price}</del>
+            <span className="ms-2">Rs {product.price-(product.discount * product.price)/100}</span>
+            
+            </p>
             <Link
               to={`/shop/${product._id}`}
               style={{ textDecoration: "none" }}
             >
-              <button className="button">Add to cart</button>
+              <button className="button" onClick={()=>handleAddClick(product)}>Add to cart</button>
             </Link>
           </div>
         </div>

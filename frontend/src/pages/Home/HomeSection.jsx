@@ -40,7 +40,6 @@ function HomeSection() {
     }
     if(data.token&&data.role&&data.isLogedInStatus&&data.userId){
       dispatch(logedin(data))
-      console.log(data)
     }    
   },[])
     
@@ -56,7 +55,8 @@ function HomeSection() {
     }
   };
   return (
-    <div className="homeSection">
+    <>
+    <div className="homeSection m-auto ms-[-15px]">
       <Section1 />
       <Section2 />
       <Section3 />
@@ -67,18 +67,20 @@ function HomeSection() {
         <h1>Frequently Asked Questions</h1>
         {accordions.map((accordion) => (
           <Accordion
-            key={accordion._id}
-            title={accordion.question}
-            content={accordion.answer}
-            isOpen={accordion.isOpen}
-            onClick={() => toggleAccordion(accordion.id)}
-            className="tyty"
+          key={accordion._id}
+          title={accordion.question}
+          content={accordion.answer}
+          isOpen={accordion.isOpen}
+          onClick={() => toggleAccordion(accordion.id)}
+          className="tyty"
           />
-        ))}
+          ))}
       </section>
       <Section8 />
-      <Footer/>
     </div>
+
+      <Footer/>
+        </>
   );
 }
 
