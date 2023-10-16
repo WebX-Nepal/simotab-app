@@ -8,6 +8,10 @@ ul {
   list-style: none;
   cursor: pointer;
 }
+li {
+  width: 5em;
+  text-align: center;
+}
 
 a {
   text-decoration: none;
@@ -53,8 +57,16 @@ a {
 
 .signUpBtn {
   position: absolute;
-  right: 0;
+  right: 40px;
   top: -25px;
+}
+
+@media screen and (max-width: 768px) {
+  .signUpBtn {
+    position: absolute;
+    right: 0;
+    top: -25px;
+  }
 }
 
 /* ul  */
@@ -63,7 +75,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 60px;
+  gap: 25px;
   margin-right: 20em;
 }
 
@@ -74,7 +86,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: 25px;
   }
 }
 

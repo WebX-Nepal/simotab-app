@@ -23,7 +23,7 @@ const Products = ({ product }) => {
         >
           <img
             src={product.thumbnailUrl.url}
-            className="card-img-top image"
+            className="card-img-top image h-[12em]"
             alt="card image"
           />
         </Tilt>
@@ -31,7 +31,7 @@ const Products = ({ product }) => {
           <div className="card-body m-auto
           ">
             <h5 className="card-title">{product.name}</h5>
-            <p className="card-text flex flex-col">
+            <p className="card-text text-center">
               <del>Rs {product.price}</del>
               <span className="ms-2">Rs {product.price - (product.discount * product.price) / 100}</span>
 

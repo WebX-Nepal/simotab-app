@@ -65,13 +65,8 @@
   width: 40%;
   display: flex;
   justify-content: center;
+}
 
-  align-self: flex-end;
-}
-.right img {
-  width: 320.51px;
-  height: 290.87px;
-}
 .section1 .bottom {
   display: flex;
   flex-wrap: wrap;
@@ -100,10 +95,9 @@
 }
 
 /* Responsive styles for smaller screens */
-@media (min-width: 500px) and (max-width: 759px) {
+@media (min-width: 500px) and (max-width: 1000px) {
   .right img {
-    width: 290px;
-    max-height: 200px;
+    display: none;
   }
 }
 /* Responsive styles for smaller screens */
