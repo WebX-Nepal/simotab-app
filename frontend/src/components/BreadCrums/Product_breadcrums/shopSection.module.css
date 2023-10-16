@@ -1,6 +1,6 @@
 .shopSection {
-  margin-top: 0px;
-  padding: 0 60px;
+  margin-top: 110px;
+  padding: 0 100px;
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -35,6 +35,10 @@
   padding: 15px 25px;
   border-radius: 50px;
   background-color: white;
+  position: fixed;
+  top: 4.5em;
+  z-index: 100;
+  width: 80%;
 }
 
 .shopSection .sectionSearch .scrollContainer button {
@@ -47,6 +51,7 @@
   font-weight: 400;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .shopSection .sectionSearch .scrollContainer button:hover {
   color: white;
   background-color: #2d2d2d;
@@ -125,6 +130,20 @@
   flex-wrap: wrap;
   gap: 97px;
 }
+@media screen and (max-width: 927px) {
+  .shopSection .sectionSearch .scrollContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: white;
+    max-width: 80%;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .shopSection {
@@ -153,18 +172,6 @@
     align-items: center;
     overflow: hidden;
     justify-content: center;
-  }
-
-  .shopSection .sectionSearch .scrollContainer {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 10px;
-    white-space: nowrap;
-    overflow-x: auto;
-    padding: 10px;
-    border-radius: 50px;
-    background-color: white;
   }
 
   .shopSection .sectionSearch .scrollContainer button {

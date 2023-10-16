@@ -40,7 +40,7 @@
 }
 
 .section8 textarea {
-  width: 100%;
+  width: 50%;
   max-width: 621px; /* Set a maximum width for the textarea */
   padding: 16px;
   border-radius: 16px;

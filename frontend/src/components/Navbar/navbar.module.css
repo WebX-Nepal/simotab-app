@@ -57,8 +57,8 @@ a {
 
 .signUpBtn {
   position: absolute;
-  right: 40px;
-  top: -25px;
+  right: 60px;
+  top: -27px;
 }
 
 @media screen and (max-width: 768px) {
@@ -131,6 +131,8 @@ li:hover {
   .hamburger {
     display: block;
     cursor: pointer;
+    position: absolute;
+    right: 86px;
   }
   .signUpBtn {
     margin: 40px auto;
