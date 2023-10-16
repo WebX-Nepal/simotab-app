@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  background-color: rgba(197, 197, 197, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 0 60px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 15px;
+}
+
+/* logo  */
+.nav .logo img {
+  margin: 0px 70px;
+  max-width: 160px;
+  align-items: center;
+}

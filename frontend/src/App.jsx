@@ -32,38 +32,40 @@ function App() {
           <Route path="/" element={<HomeSection />} />
           <Route path="/shop" element={<Shop />} />
 
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/signin" element={<SignIn />} />
+
+
           <Route path="/shop/:id" element={<Single_Cart_Review />} />
 
           <Route path="/cart" element={<Cart />} />
-          <Route path="/aboutus" element={<AboutUsSection/>} />
+          <Route path="/aboutus" element={<AboutUsSection />} />
         </Route>
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
 
         {/* admin routes */}
 
 
-        <Route path="/admin" element={<SecureRoute/>}>
-        <Route path="/admin" element={<Sidebar/>}>
-          <Route path="/admin/my-profile" element={<MyProfile/>}/>
-          <Route path="/admin/my-cards" element={<MyCards/>}/>
-          <Route path="/admin/my-key-chain" element={<MyKeyChain/>}/>
-          <Route path="/admin/my-pets" element={<MyPets/>}/>
-          <Route path="/admin/contacts" element={<Contact/>}/>
-          <Route path="/admin/contacts/:id" element={<UpdateContact/>}/>
-          <Route path="/admin/create-contact-form" element={<CreateContact/>}/>
-          <Route path="/admin/edit-profile" element={<EditProfile/>}/>
-          <Route path="/admin/edit-profile/:id" element={<UpdateLink/>}/>
-          <Route path="/admin/create-link" element={<CreateLink/>}/>
-          <Route path="/admin/test" element={<CreateProduct/>}/>
+        <Route path="/admin" element={<SecureRoute />}>
+          <Route path="/admin" element={<Sidebar />}>
+            <Route path="/admin/my-profile" element={<MyProfile />} />
+            <Route path="/admin/my-cards" element={<MyCards />} />
+            <Route path="/admin/my-key-chain" element={<MyKeyChain />} />
+            <Route path="/admin/my-pets" element={<MyPets />} />
+            <Route path="/admin/contacts" element={<Contact />} />
+            <Route path="/admin/contacts/:id" element={<UpdateContact />} />
+            <Route path="/admin/create-contact-form" element={<CreateContact />} />
+            <Route path="/admin/edit-profile" element={<EditProfile />} />
+            <Route path="/admin/edit-profile/:id" element={<UpdateLink />} />
+            <Route path="/admin/create-link" element={<CreateLink />} />
+            <Route path="/admin/test" element={<CreateProduct />} />
 
-        </Route>
+          </Route>
         </Route>
 
 
 
         <Route path="*" element={<UnMatchedRoutePage />} />
-        
+
       </Routes>
     </>
   );
