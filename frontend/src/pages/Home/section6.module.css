@@ -24,7 +24,7 @@
 }
 .section6 .card {
   position: relative;
-  background: white;
+  background: #e3e3e3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,13 +32,12 @@
   width: 70%;
   border-radius: 10px;
   width: 350px;
-  height: 300px;
+  height: 350px;
 }
 .section6 .card img {
   position: absolute;
-  left: 30%;
-  top: 30px;
-  max-height: 100px;
+  top: 50px;
+  max-height: 120px;
   border-radius: 50%;
 }
 .section6 .card .text {
@@ -47,6 +46,9 @@
   width: 70%;
   color: black;
   text-wrap: justify;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .section6 .card h2 {
@@ -54,7 +56,9 @@
 }
 .section6 .card p {
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
   /* padding: 6px; */
 }
 
@@ -82,7 +86,7 @@
     font-size: 1.9vw;
   }
   .section6 .card p {
-    font-size: 1.7vw;
+    font-size: 2.3vw;
   }
 }
 

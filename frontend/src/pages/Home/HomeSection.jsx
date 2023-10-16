@@ -17,10 +17,11 @@ import Footer from "../../components/footer/Footer";
 import Cookies from 'js-cookie'
 import { useDispatch } from "react-redux";
 import { logedin } from "../signin/auth.Slice";
+import ScrollToTopButton from "../../components/ScrollToTopButton";
 
 function HomeSection() {
   const [accordions, setAccordions] = useState([]);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
 
   const getApiFaqData = async () => {
     const response = await getDataWithoutHeader("faqs");
@@ -32,17 +33,17 @@ function HomeSection() {
   };
   useEffect(() => {
     getApiFaqData();
-    const data={
-      token:Cookies.get("simotapp_jwtToken"),
-      role:Cookies.get("simotapp_roles"),
-      isLogedInStatus:Cookies.get("simotapp_isLoggedIn"),
-      userId:Cookies.get("simotapp_UserId")
+    const data = {
+      token: Cookies.get("simotapp_jwtToken"),
+      role: Cookies.get("simotapp_roles"),
+      isLogedInStatus: Cookies.get("simotapp_isLoggedIn"),
+      userId: Cookies.get("simotapp_UserId")
     }
-    if(data.token&&data.role&&data.isLogedInStatus&&data.userId){
+    if (data.token && data.role && data.isLogedInStatus && data.userId) {
       dispatch(logedin(data))
-    }    
-  },[])
-    
+    }
+  }, [])
+
 
   const toggleAccordion = (accordionId) => {
     if (accordions) {
@@ -56,31 +57,31 @@ function HomeSection() {
   };
   return (
     <>
-    <div className="homeSection m-auto ms-[-15px]">
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
-      <Section6 />
-      <section className="section7">
-        <h1>Frequently Asked Questions</h1>
-        {accordions.map((accordion) => (
-          <Accordion
-          key={accordion._id}
-          title={accordion.question}
-          content={accordion.answer}
-          isOpen={accordion.isOpen}
-          onClick={() => toggleAccordion(accordion.id)}
-          className="tyty"
-          />
+      <div className="homeSection m-auto ms-[-15px]">
+        <Section1 />
+        <Section2 />
+        <Section3 />
+        <Section4 />
+        <Section5 />
+        <Section6 />
+        <section className="section7">
+          <h1>Frequently Asked Questions</h1>
+          {accordions.map((accordion) => (
+            <Accordion
+              key={accordion._id}
+              title={accordion.question}
+              content={accordion.answer}
+              isOpen={accordion.isOpen}
+              onClick={() => toggleAccordion(accordion.id)}
+              className="tyty"
+            />
           ))}
-      </section>
-      <Section8 />
-    </div>
-
-      <Footer/>
-        </>
+        </section>
+        <Section8 />
+      </div>
+      <ScrollToTopButton />
+      <Footer />
+    </>
   );
 }
 

@@ -1,8 +1,8 @@
 .section2 {
   display: flex;
-  padding: 0px 80px;
+  padding: 0px 100px;
   gap: 80px;
-  width: 98vw;
+  /* width: 98vw; */
   /* margin-top: -50px; */
 }
 .left {
@@ -16,7 +16,7 @@
   margin: 50px 100px 20px 0px;
 }
 .left h1 {
-  width: 500px;
+  /* width: 500px; */
   margin: 0;
   font-size: 50px;
   font-weight: 600;

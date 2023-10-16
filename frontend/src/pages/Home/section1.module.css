@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   justify-content: center;
-  padding: 0px 80px;
+  padding: 0px 100px;
   margin-top: 60px;
 }
 .top .left {
@@ -71,7 +71,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 93px;
-  padding-inline: 80px;
+  padding-inline: 100px;
   /* margin-top: 10px; */
 }
 .bottom .ic_text {
@@ -125,9 +125,10 @@
     gap: 20px;
   }
 }
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .section1 {
     padding: 0 80px;
+    margin-top: -2em;
   }
   .section1 .top {
     padding: 0;
@@ -142,7 +143,7 @@
     margin-top: 25px;
   }
   .left h1 {
-    font-size: 40px; /* Decrease font size for smaller screens */
+    font-size: 30px; /* Decrease font size for smaller screens */
   }
   .element {
     /* margin: 25px auto; */
