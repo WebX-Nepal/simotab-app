@@ -21,7 +21,7 @@ const Accordion=({ title, content, isOpen, onClick })=> {
 
 
 Accordion.prototype={
-        content:string,
+        content:string.isRequired,
         title:string,
         isOpen:bool,
         onClick:func,

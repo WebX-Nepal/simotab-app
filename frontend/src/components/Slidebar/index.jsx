@@ -1,5 +1,6 @@
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
+import './index.css'
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
@@ -7,7 +8,6 @@ import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Person2Icon from "@mui/icons-material/Person2";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -16,10 +16,9 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import Cookies from "js-cookie";
 import ListItemText from "@mui/material/ListItemText";
 
-import { Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -118,10 +117,6 @@ export default function Sidebar() {
 
   const handleLogout=()=>{
     dispatch(logedOut())
-    Cookies.set("simotapp_jwtToken",""),
-    Cookies.set("simotapp_roles",""),
-    Cookies.set("simotapp_isLoggedIn",""),
-    Cookies.set("simotapp_UserId","")
     navigate('/signin')
 
   }
@@ -130,22 +125,28 @@ export default function Sidebar() {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
+        <Toolbar className="bg-white">
           <IconButton
-            color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
-              marginRight: 5,
+              marginRight: 20,
+              color:"black",
+              
               ...(open && { display: "none" }),
             }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Simot-App
-          </Typography>
+          <div className="nav">
+                
+                    <NavLink to="/" className="logo">
+                        <img src="../../../image/logo.png" />
+                    </NavLink>
+
+
+            </div>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>

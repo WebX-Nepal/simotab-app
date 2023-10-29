@@ -13,7 +13,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { addData } from '../../services/axios.service';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { logedin } from './auth.Slice';
 import SignInWithGoogle from '../../components/SignIn.With.google';
 import Navlogo from '../../components/Navlogo/Navlogo';
@@ -100,6 +100,11 @@ export default function SignIn() {
                 <Grid item xs>
                   <SignInWithGoogle />
 
+                </Grid>
+                <Grid  className='text-center mt-[20px]  ms-20'>
+                  <NavLink to="/signUp">
+                    Dont Have an Account ? Sign up
+                  </NavLink>
                 </Grid>
 
 

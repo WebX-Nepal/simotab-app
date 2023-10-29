@@ -5,7 +5,10 @@ import Footer from "../../components/footer/Footer";
 const Shop = () => {
   return (
     <>
+    <div className="px-20">
       <ShopSection />
+    </div>
+
       <ScrollToTopButton />
       <Footer />
     </>

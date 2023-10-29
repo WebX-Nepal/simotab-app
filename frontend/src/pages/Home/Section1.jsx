@@ -33,7 +33,8 @@ function Section1() {
                         <Tilt glareEnable={true} tiltMaxAngleX={20}
                             tiltMaxAngleY={20} perspective={1000}
                         >
-                            <img src="../../../assets/card holder.png" alt="cardHolder" />
+                            <img src="../../../assets/card holder.png" alt="cardHolder"
+                            className="rounded-[10px]" />
                         </Tilt>
 
                     </div>

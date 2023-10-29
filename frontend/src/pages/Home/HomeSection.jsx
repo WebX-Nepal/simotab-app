@@ -17,7 +17,6 @@ import Footer from "../../components/footer/Footer";
 import Cookies from 'js-cookie'
 import { useDispatch } from "react-redux";
 import { logedin } from "../signin/auth.Slice";
-import ScrollToTopButton from "../../components/ScrollToTopButton";
 
 function HomeSection() {
   const [accordions, setAccordions] = useState([]);
@@ -29,6 +28,7 @@ function HomeSection() {
     const datas = response.faqs.map((data) => {
       return { ...data, isOpen: false };
     });
+    console.log(datas)
     setAccordions(datas);
   };
   useEffect(() => {
@@ -46,13 +46,14 @@ function HomeSection() {
 
 
   const toggleAccordion = (accordionId) => {
+    console.log(accordionId)
     if (accordions) {
       setAccordions((prevAccordions) =>
-        prevAccordions.map((accordion) => ({
-          ...accordion,
-          isOpen: accordion.id === accordionId ? !accordion.isOpen : false,
+      prevAccordions.map((accordion) => ({
+        ...accordion,
+        isOpen: accordion._id === accordionId ? !accordion.isOpen : false,
         }))
-      );
+    );   
     }
   };
   return (
@@ -64,7 +65,8 @@ function HomeSection() {
         <Section4 />
         <Section5 />
         <Section6 />
-        <section className="section7">
+      {accordions &&
+          <section className="section7">
           <h1>Frequently Asked Questions</h1>
           {accordions.map((accordion) => (
             <Accordion
@@ -72,14 +74,14 @@ function HomeSection() {
               title={accordion.question}
               content={accordion.answer}
               isOpen={accordion.isOpen}
-              onClick={() => toggleAccordion(accordion.id)}
-              className="tyty"
+              onClick={() => toggleAccordion(accordion._id)}
             />
           ))}
         </section>
+      }
         <Section8 />
       </div>
-      <ScrollToTopButton />
+      {/* <ScrollToTopButton /> */}
       <Footer />
     </>
   );

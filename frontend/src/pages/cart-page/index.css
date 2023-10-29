@@ -1,6 +1,9 @@
 /* Cart */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Montserrat:wght@600&family=Open+Sans:ital,wght@1,300&family=Roboto+Mono:ital,wght@0,500;1,500&family=Roboto:ital,wght@0,400;1,900&display=swap');
 .cart-container {
     margin: 10px 20px;
+    padding: 10px !important;
+    font-family: 'Montserrat', sans-serif;
 
   }
   .cart-container h2 {

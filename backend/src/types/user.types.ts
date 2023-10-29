@@ -13,7 +13,7 @@ export type UserSignInType={
 
 interface UserLinkInterface {
     url:string,
-    media:string
+    name:string
 }
 interface Image {
     url:string,

@@ -1,23 +1,45 @@
 import { useEffect, useState } from "react";
-import { deleteData, getData } from "../../../services/axios.service";
+import {
+  deleteData,
+  getData,
+  updateDataWithHeader,
+} from "../../../services/axios.service";
 import "./index.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import { errorToast, successToast } from "../../../services/toast.service";
+import DrawerAdmin from "../../../components/Drawer";
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material";
 const Contact = () => {
-  const navigate=useNavigate()
-  const [search, setsearch] = useState("");
-  const [Contacts, setContacts] = useState([]);
-  const { userId } = useSelector((state) => {
+  const navigate = useNavigate();
+  const { userId, token } = useSelector((state) => {
     return state.auth;
   });
+  // for opening and closing the model
+  const [open, setOpen] = useState(false);
+  // updated data
+  const [updData, setupdData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
+  // drawer open and close
+  const [isDrawerOpen, setisDrawerOpen] = useState(false);
+  const [search, setsearch] = useState("");
+  const [Contacts, setContacts] = useState([]);
 
   const getUser = async () => {
     if (userId) {
       const User = await getData(`contacts`);
-      if(User.success){
+      if (User.success) {
         setContacts(User.contacts);
       }
     }
@@ -25,46 +47,92 @@ const Contact = () => {
 
   useEffect(() => {
     getUser();
-  },[]);
+  }, []);
 
-
-  const deleteContactHandler=async(id)=>{
-    const response=await deleteData(`contacts/${id}`)
-    if(response.success){
-      successToast(response.message)
-      const newContacts=Contacts.filter((contact)=>contact._id!=id)
-      setContacts(newContacts)
-    }else{
-      errorToast(response.message?response.message:"unable to delete the contact")
+  // delete the contact
+  const deleteContactHandler = async (id) => {
+    const response = await deleteData(`contacts/${id}`);
+    if (response.success) {
+      successToast(response.message);
+      const newContacts = Contacts.filter((contact) => contact._id != id);
+      setContacts(newContacts);
+    } else {
+      errorToast(
+        response.message ? response.message : "unable to delete the contact"
+      );
     }
-  }
+  };
+
+  // for filling the form before getting updated
+  const editContactHandler = async (id) => {
+    setOpen(true);
+    const response = await getData(`contacts/${id}`, token);
+    if (response.success) {
+      setupdData({
+        name: response.contact?.name,
+        email: response.contact?.email,
+        phone: response.contact?.phone,
+      });
+    }
+  };
 
 
-  const updateContactHanlder=async(id)=>{
-    navigate(`/admin/contacts/${id}`)
-  }
+  // for form submit after getting updated
+  const UpdateDataSubmitHandler = async (id) => {
+    const response = await updateDataWithHeader(
+      `contacts/${id}`,
+      updData,
+      token
+    );
+    if (response.success) {
+      successToast(
+        response.message ? response.message : "Contact updated successfully",
+        token
+      );
 
+      let newUpdArr = [];
 
- 
+      Contacts.map((contact) => {
+        if (contact._id === id) {
+          newUpdArr.push(response.contact);
+        } else {
+          newUpdArr.push(contact);
+        }
+      });
+      setContacts(newUpdArr);
+      setOpen(false);
+    } else {
+      errorToast(
+        response.message ? response.message : "unable to update the contact"
+      );
+    }
+  };
+
   return (
     <>
       <div className="container bg-white max-w-[500px] m-auto rounded-[20px] p-[10px]  ">
-        <div className=" first mt-5 flex justify-center items-center gap-[50px] md:gap-[60px] mr-[50px]">
-          <svg
-            className="mt-4 cursor-pointer"
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="25"
-            viewBox="0 0 16 25"
-            fill="none"
-          >
-            <path
-              d="M14 2L3 12.5L14 23"
-              stroke="black"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-          </svg>
+        <div className=" first mt-5 flex justify-center items-center gap-[50px] md:gap-[60px] mr-[100px]">
+          <DrawerAdmin
+            isDrawerOpen={isDrawerOpen}
+            setisDrawerOpen={setisDrawerOpen}
+          />
+          <button onClick={() => setisDrawerOpen(true)}>
+            <svg
+              className="mt-4 cursor-pointer"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="25"
+              viewBox="0 0 16 25"
+              fill="none"
+            >
+              <path
+                d="M14 2L3 12.5L14 23"
+                stroke="black"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
           <h1 className="mt-4 text-[24px] font-[400]">CONTACT</h1>
           <svg
             className="mt-4 cursor-pointer"
@@ -83,7 +151,7 @@ const Contact = () => {
             />
           </svg>
         </div>
-        <div className="second border rounded-full bg-[#EEE] h-10 w-[70%]  m-auto flex items-center justify-start mt-7 ml-[40px]">
+        <div className="second border rounded-full bg-[#EEE] h-10 w-[75%]  m-auto flex items-center justify-start mt-7 ml-[50px]">
           <svg
             className="ml-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -98,25 +166,27 @@ const Contact = () => {
             />
           </svg>
           <input
-            className="bg-[#EEE] ml-2 max-w-[70%] border-none p-auto outline-none"
+            className="bg-[#EEE] ml-2 max-w-[70%] border-none p-auto outline-none ms-10"
             type="search"
             placeholder="Search for Contact..."
             value={search}
-            onChange={(e)=>{
-              setsearch(e.target.value)
+            onChange={(e) => {
+              e.preventDefault();
+              setsearch(e.target.value);
             }}
-
           />
         </div>
 
-
-
         {/* API */}
-        <div className="users">
+        <div className="users ms-20">
           {Contacts &&
             Contacts.map((contract) => {
+              console.log(contract);
               return (
-                <div className="user mt-5 flex justify-center w-[80%] md:w-[70%] items-center gap-3" key={contract._id}>
+                <div
+                  className="user mt-5 flex justify-center w-[80%] md:w-[70%] items-center gap-3"
+                  key={contract?._id}
+                >
                   <svg
                     className="p-[5px] border rounded-full bg-[#EEE] cursor-pointer"
                     xmlns="http://www.w3.org/2000/svg"
@@ -174,38 +244,130 @@ const Contact = () => {
                       </clipPath>
                     </defs>
                   </svg>
+
                   <div className="details flex flex-col ">
                     <h1 type="name" className="name text-[16px] font-[400]">
-                      {contract.name}
+                      {contract?.name}
                     </h1>
                     <p type="email" className="text-[13px]">
-                      {contract.email}
+                      {contract?.email}
                     </p>
                     <p type="email" className="text-[13px]">
-                      {contract.phone}
+                      {contract?.phone}
                     </p>
                     <p type="date" className="text-[10px]">
-                      {contract.createdAt}
+                      {contract?.createdAt}
                     </p>
                   </div>
+
                   <div className="ms-5 flex gap-5">
-                  <button onClick={()=>updateContactHanlder(contract._id)}> <EditIcon/></button>
-                  <button onClick={()=>deleteContactHandler(contract._id)}><DeleteIcon/></button>
+                    <button onClick={() => editContactHandler(contract._id)}>
+                      {" "}
+                      <EditIcon />
+                    </button>
+                    {updData.name && updData.email && updData.phone && (
+                      <div>
+                        <Dialog
+                          open={open}
+                          onClose={() => setOpen(false)}
+                          aria-labelledby="dialog-title"
+                          aria-describedby="dialog-description"
+                          className="ms-[25%] w-[1000px] mb-[200px] rounded-[50px]"
+                        >
+                          <DialogTitle id="dialog-title " className="text-center">
+                            Update-contact-form
+                          </DialogTitle>
+                          <DialogContent>
+                            <div className="max-w-md mx-auto mb-2 mt-10">
+                              <div className="mb-4">
+                                <label htmlFor="name">Name:</label>
+                                <input
+                                  type="text"
+                                  id="name"
+                                  name="name"
+                                  value={updData.name}
+                                  onChange={(e) => {
+                                    e.preventDefault();
+                                    setupdData({
+                                      ...updData,
+                                      name: e.target.value,
+                                    });
+                                  }}
+                                  className="mb-2 block p-2 w-[400px] border"
+                                ></input>
+                              </div>
+                              <div className="mb-4">
+                                <label htmlFor="email">Email:</label>
+                                <input
+                                  type="email"
+                                  id="email"
+                                  name="email"
+                                  value={updData.email}
+                                  onChange={(e) => {
+                                    e.preventDefault();
+
+                                    setupdData({
+                                      ...updData,
+                                      email: e.target.value,
+                                    });
+                                  }}
+                                  className="mb-2 p-2 w-full border"
+                                ></input>
+                              </div>
+                              <div className="mb-4">
+                                <label htmlFor="phone">Phone No:</label>
+                                <input
+                                  type="text"
+                                  id="phone"
+                                  name="phone"
+                                  value={updData.phone}
+                                  onChange={(e) => {
+                                    e.preventDefault();
+                                    setupdData({
+                                      ...updData,
+                                      phone: e.target.value,
+                                    });
+                                  }}
+                                  className="mb-2 p-2 w-full border"
+                                ></input>
+                              </div>
+                            </div>
+                          </DialogContent>
+                          <DialogActions>
+                            <Button onClick={() => setOpen(false)}>
+                              Cancel
+                            </Button>
+                            <Button
+                              onClick={(e) => {
+                                e.preventDefault();
+
+                                UpdateDataSubmitHandler(contract._id);
+                              }}
+                              autoFocus
+                            >
+                              Update
+                            </Button>
+                          </DialogActions>
+                        </Dialog>
+                      </div>
+                    )}
+                    <button onClick={() => deleteContactHandler(contract._id)}>
+                      <DeleteIcon />
+                    </button>
                   </div>
-                
-               
                 </div>
               );
             })}
 
-        {/* API */}
-
+          {/* API */}
         </div>
 
-
-        <button className='my-[90px] m-auto flex justify-center items-center bg-gradient-to-r from-[#2D2F84] to-[#662E91] h-[50px] md:w-[370px] w-[300px] text-[#FFFFFF] rounded-full ml-[30px]' onClick={()=>navigate("/admin/create-contact-form")}>Add new connection</button>
-
-
+        <button
+          className="my-[90px] m-auto flex justify-center items-center bg-gradient-to-r from-[#2D2F84] to-[#662E91] h-[50px] md:w-[370px] w-[300px] text-[#FFFFFF] rounded-full ml-[55px]"
+          onClick={() => navigate("/admin/create-contact-form")}
+        >
+          Add new connection
+        </button>
       </div>
     </>
   );

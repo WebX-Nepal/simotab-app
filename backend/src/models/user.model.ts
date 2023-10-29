@@ -43,7 +43,7 @@ const userSchema=new mongoose.Schema<UserModelType>({
     },
     socialMediaLinks:[{
         url:String,
-        media:String
+        name:String
     }], 
 
 },{timestamps:true})

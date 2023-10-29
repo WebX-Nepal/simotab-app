@@ -11,7 +11,8 @@ export const createOtherLinkHandler=async(req:CustomRequest,res:Response,next:Ne
 
         res.status(201).json({
             success:true,
-            message:"Link created successfully"
+            message:"Link created successfully",
+            otherLink
         })
         
     } catch (error:any) {

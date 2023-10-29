@@ -9,6 +9,7 @@ export const updateOtherLinkHandler=async(req:Request,res:Response,next:NextFunc
 
         const id=req.params.id
         validateMongodbId(id,res)
+        console.log(req.body)
 
         const otherLink=await OtherLinkModel.findById(id)
 
@@ -16,11 +17,12 @@ export const updateOtherLinkHandler=async(req:Request,res:Response,next:NextFunc
             return next(new ErrorHandler("Link with this id doesnt exist",404))
         }
 
-        await OtherLinkModel.findByIdAndUpdate(id,{$set:req.body},{new:true})
+     const updLink=   await OtherLinkModel.findByIdAndUpdate(id,{$set:req.body},{new:true})
 
         res.status(201).json({
             success:true,
-            message:"Link updated successfully"
+            message:"Link updated successfully",
+            otherLink:updLink
         })
         
     } catch (error:any) {

@@ -11,24 +11,26 @@ export const InsertSocialMediaLinkHandler = async (
 ) => {
   const userId = req.user?._id;
 
-  const { media, url } = req.body;
+  const { name, url } = req.body;
 
   validateMongodbId(userId, res);
 
   const user = await UserModel.findById(userId);
-
+    
   if (!user) {
     return next(
       new ErrorHandler("user with this id is not available or loged in", 400)
     );
   }
+    user.socialMediaLinks=user?.socialMediaLinks.filter((socialMediaLink)=>socialMediaLink.name!==name)
 
-  user.socialMediaLinks.push({ media, url });
+  user.socialMediaLinks.push({ name, url });
 
   await user.save();
 
   res.status(200).json({
     success: true,
     message: "Social media link added sucessfully",
+    user
   });
 };

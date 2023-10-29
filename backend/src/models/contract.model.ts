@@ -9,13 +9,11 @@ const contactSchema=new mongoose.Schema<ContactModelInterface>({
     },
     email:{
         type:String,
-        unique:true,
         required:true
     },
     phone:{
         type:String,
         required:true,
-        unique:true
     },
     user:{
         type:mongoose.Schema.Types.ObjectId,

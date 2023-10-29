@@ -60,12 +60,26 @@ a {
   right: 60px;
   top: -27px;
 }
+.profile-container{
+  float: left;
+ 
+ 
 
+}
+
+.profile-image{
+  margin-left: 500px;
+
+
+}
 @media screen and (max-width: 768px) {
   .signUpBtn {
     position: absolute;
     right: 0;
     top: -25px;
+  }
+  .profile-container{
+    left: -200px;
   }
 }
 

@@ -38,11 +38,11 @@ const Cart = () => {
 
   return (
     <>
-      <div className="cart-container ms-7">
-        <h2>Shopping Cart</h2>
+    <h1 className="text-center text-2xl mt-[40px] mb-[-80px]">Shopping cart</h1>
+      <div className="cart-container">
         {cart.simot_app_cartItems.length === 0 ? (
           <Card className="ms-4">
-            <CardContent className="MS-4">
+            <CardContent className="">
               <div className="cart-empty">
                 <p>Your Cart Is Empty</p>
                 <div className="continue-shopping">
@@ -52,7 +52,7 @@ const Cart = () => {
                   >
                     <ShoppingCartIcon />
 
-                    <span className="text-black">Start Shopping</span>
+                    {/* <h1 className="text-black">Start Shopping</h1> */}
                   </Link>
                 </div>
               </div>
@@ -101,7 +101,7 @@ const Cart = () => {
                       <div className="cart-product-price">
                         ${cartItem.price}
                       </div>
-                      <div className="cart-product-quantity">
+                      <div className="cart-product-quantity ms-[10px]">
                         <button
                           onClick={() => {
                             handleIncreaseProductQuantity(cartItem);

@@ -1,13 +1,12 @@
 import { ErrorMessage, Field, Formik, Form } from "formik"
 import { string , object} from "yup"
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import { postDataWithHeader } from "../../../../services/axios.service"
 import { errorToast, successToast } from "../../../../services/toast.service"
+import './index.css'
 
 
-const CreateLink = () => {
-    const navigate=useNavigate()
+const CreateLink = (prop) => {
     const {token}=useSelector((state)=>state.auth)
     const initialState={
         title:"",
@@ -23,13 +22,15 @@ const CreateLink = () => {
         console.log(response)
         if(response.success){
             successToast(response.message?response.message:"Sucessfully added the Link")
-            navigate('/admin/edit-profile')
+            prop.getLinks(response.otherLink)
+            prop.handleCloseLink()
         }else{
             errorToast(response.message?response.message:"Unable to add the link")
         }
     }
   return (
     <div className="max-w-md mx-auto mb-2 mt-10">
+      <h1 className="text-center mt-2 mb-2 text-2xl">Create Link Form</h1>
         <Formik initialValues={initialState} onSubmit={handleSubmit} validationSchema={validationSchema}>
 
             {
@@ -53,7 +54,7 @@ const CreateLink = () => {
                 <Field
                   type="text"
                   name="url"
-                  className="mb-2 p-2 w-full border"
+                  className="mb-4 p-2 w-full border"
                 ></Field>
                 <ErrorMessage
                   component="div"
@@ -63,7 +64,7 @@ const CreateLink = () => {
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 text-white rounded-md p-2"
+                className="bg-blue-500 text-white btn1"
               >
                 {isSubmitting ? "creating.." : "submit"}
               </button>

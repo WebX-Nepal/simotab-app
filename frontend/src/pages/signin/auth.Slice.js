@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-
+import Cookies from "js-cookie";
 const initialState={
     token:'',
     role:'',
@@ -28,6 +28,10 @@ const authSlice=createSlice({
             state.userId="",
             state.current_user_info={}
             state.isLogedInStatus=false
+            Cookies.set("simotapp_jwtToken",""),
+            Cookies.set("simotapp_roles",""),
+            Cookies.set("simotapp_isLoggedIn",""),
+            Cookies.set("simotapp_UserId","")
         },
         loadUser:(state,data)=>{
             state.current_user_info=data.payload
