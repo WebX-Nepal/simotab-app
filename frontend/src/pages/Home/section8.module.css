@@ -63,7 +63,7 @@
 }
 
 /* Hover */
-.section8 input:hover {
+/* .section8 input:hover {
   border: 1.5px solid rebeccapurple;
 }
 .section8 textarea:hover {
@@ -74,7 +74,7 @@
 }
 .section8 textarea:focus {
   border: 1.5px solid rebeccapurple;
-}
+} */
 
 /* Responsive styles for screens up to 768px */
 @media (max-width: 768px) {
