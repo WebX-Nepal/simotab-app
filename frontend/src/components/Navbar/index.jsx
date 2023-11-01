@@ -4,10 +4,11 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../../services/axios.service";
 import { loadUser } from "../../pages/signin/auth.Slice";
+import ScrollToTop from "../ScrollToTop";
 
 function Navbar() {
   const dispatch = useDispatch();
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const { isLogedInStatus, userId, token, current_user_info } = useSelector(
     (state) => {
       return state.auth;
@@ -37,6 +38,7 @@ function Navbar() {
 
   return (
     <>
+      <ScrollToTop />
       <div className={`${styles.nav}`}>
         {
           <NavLink to="/" className={`${styles.logo}`}>
@@ -76,18 +78,18 @@ function Navbar() {
               </NavLink>
             </div>
           )}
-      
+
         </ul>
 
         {current_user_info?.profileImageUrl?.url && (
-            <div className="profile-container bts">
-             <button onClick={()=>navigate('/admin/my-profile')}>
-             <img src={current_user_info.profileImageUrl.url} alt="" className="profile-image w-[50px] h-[50px] rounded-full object-cover   "/>
-             </button>
+          <div className="profile-container bts">
+            <button onClick={() => navigate('/admin/my-profile')}>
+              <img src={current_user_info.profileImageUrl.url} alt="" className="profile-image w-[50px] h-[50px] rounded-full object-cover   " />
+            </button>
 
-            </div>
-    
-          )}
+          </div>
+
+        )}
 
         <div
           className={`${styles.hamburger} ${isActive ? styles.active : ""} `}

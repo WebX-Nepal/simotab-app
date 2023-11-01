@@ -18,6 +18,7 @@ import Cookies from 'js-cookie'
 import { useDispatch } from "react-redux";
 import { logedin } from "../signin/auth.Slice";
 
+
 function HomeSection() {
   const [accordions, setAccordions] = useState([]);
   const dispatch = useDispatch()
@@ -49,15 +50,16 @@ function HomeSection() {
     console.log(accordionId)
     if (accordions) {
       setAccordions((prevAccordions) =>
-      prevAccordions.map((accordion) => ({
-        ...accordion,
-        isOpen: accordion._id === accordionId ? !accordion.isOpen : false,
+        prevAccordions.map((accordion) => ({
+          ...accordion,
+          isOpen: accordion._id === accordionId ? !accordion.isOpen : false,
         }))
-    );   
+      );
     }
   };
   return (
     <>
+
       <div className="homeSection m-auto ms-[-15px]">
         <Section1 />
         <Section2 />
@@ -65,20 +67,20 @@ function HomeSection() {
         <Section4 />
         <Section5 />
         <Section6 />
-      {accordions &&
+        {accordions &&
           <section className="section7">
-          <h1>Frequently Asked Questions</h1>
-          {accordions.map((accordion) => (
-            <Accordion
-              key={accordion._id}
-              title={accordion.question}
-              content={accordion.answer}
-              isOpen={accordion.isOpen}
-              onClick={() => toggleAccordion(accordion._id)}
-            />
-          ))}
-        </section>
-      }
+            <h1>Frequently Asked Questions</h1>
+            {accordions.map((accordion) => (
+              <Accordion
+                key={accordion._id}
+                title={accordion.question}
+                content={accordion.answer}
+                isOpen={accordion.isOpen}
+                onClick={() => toggleAccordion(accordion._id)}
+              />
+            ))}
+          </section>
+        }
         <Section8 />
       </div>
       {/* <ScrollToTopButton /> */}
