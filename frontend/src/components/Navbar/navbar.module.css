@@ -153,9 +153,9 @@ li:hover {
   }
   .signUpBtn {
     margin: 40px auto;
-    max-width: 50%;
+    max-width: 7rem;
     padding: 0;
-    top: 130px;
+    top: 55%;
     left: 0;
   }
 
@@ -196,6 +196,11 @@ li:hover {
     padding: 10px;
     text-decoration: none;
     color: white;
+    margin: 0 0 0 7rem;
+    height: 300px;
+    display: flex;
+    /* gap: 8px; */
+    justify-content: flex-start;
   }
 
   .navMenu.active {
