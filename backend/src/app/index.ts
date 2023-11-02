@@ -25,11 +25,17 @@ const allowedOrigins = ["https://simotap.com", "http://localhost:5173/"];
 
 const corsOptions = {
   // origin: allowedOrigins,
-  origin: "*",
+  origin: "https://www.simotap.com",
   methods: "GET,POST,PUT,PATCH,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
 };
+
+// app.use(
+//   cors({
+//     origin: '*',
+//   }),
+// );
 
 app.use(cors(corsOptions));
 app.use(mongoSanitize());
