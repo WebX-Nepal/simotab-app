@@ -22,14 +22,25 @@ connectdb();
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 const allowedOrigins = ["https://simotap.com", "http://localhost:5173/"];
-
-app.use(
-  cors({
-    origin: ["https://simotap.com/", "*"],
-    methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  next();
+});
+const whitelist = ["https://simotap.com/"];
+const corsOptions = {
+  origin: function (origin: any, callback: any) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 app.use(mongoSanitize());
 app.use(compression());
