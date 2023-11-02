@@ -1,5 +1,10 @@
 import { cleanEnv, str, port } from "envalid";
-import "dotenv/config";
+import dotenv from "dotenv";
+import path from "path";
+
+const envFilePath = path.resolve(path.dirname(__dirname), "../.env");
+// Construct the path to the .env file in the root directory
+dotenv.config({ path: envFilePath });
 export default cleanEnv(process.env, {
   MONGO_URL: str(),
   PORT: port(),
