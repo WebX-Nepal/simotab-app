@@ -1,5 +1,4 @@
 import express, { Request, Response, NextFunction } from "express";
-import cors from "cors";
 import passport from "passport";
 import cookieParser from "cookie-parser";
 import mongoSanitize from "express-mongo-sanitize";
@@ -21,20 +20,8 @@ connectdb();
 
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
-const allowedOrigins = ["https://simotap.com", "http://localhost:5173/"];
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  next();
-});
-const whitelist = ["https://simotap.com/"];
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-};
-app.use(cors(corsOptions));
+
+
 
 app.use(mongoSanitize());
 app.use(compression());
