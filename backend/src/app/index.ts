@@ -23,21 +23,20 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 const allowedOrigins = ["https://simotap.com", "http://localhost:5173/"];
 
-const corsOptions = {
-  // origin: allowedOrigins,
-  origin: "https://www.simotap.com",
-  methods: "GET,POST,PUT,PATCH,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   // origin: allowedOrigins,
+//   origin: "https://www.simotap.com",
+//   methods: "GET,POST,PUT,PATCH,DELETE",
+//   credentials: true,
+//   optionsSuccessStatus: 204,
+// };
 
-// app.use(
-//   cors({
-//     origin: '*',
-//   }),
-// );
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
-app.use(cors(corsOptions));
 app.use(mongoSanitize());
 app.use(compression());
 app.use(helmet());
