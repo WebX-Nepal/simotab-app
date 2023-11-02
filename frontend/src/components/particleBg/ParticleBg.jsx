@@ -1,6 +1,7 @@
 import Particles from "react-tsparticles";
 import particleConfig from "./particleConfig";
-import "./particle.css";
+
+
 
 
 

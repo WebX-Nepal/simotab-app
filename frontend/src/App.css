@@ -28,7 +28,7 @@ body {
 }
 
 .hover-div {
-  position: absolute;
+  position: relative;
   z-index: 2;
   top: 0;
   left: 0;
@@ -44,4 +44,8 @@ body {
 .content-container {
   position: relative;
   z-index: 3;
+}
+
+#tsparticles {
+  display: none;
 }

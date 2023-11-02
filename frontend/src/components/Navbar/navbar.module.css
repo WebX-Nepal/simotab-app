@@ -196,9 +196,9 @@ li:hover {
     padding: 10px;
     text-decoration: none;
     color: white;
-    margin: 0 0 0 7rem;
     height: 300px;
     display: flex;
+    width: 100%;
     /* gap: 8px; */
     justify-content: flex-start;
   }
