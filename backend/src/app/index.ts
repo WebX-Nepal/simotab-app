@@ -10,6 +10,8 @@ import { connectdb } from "../config/connect.database";
 import allRoute from "../routes/index";
 import helmet from "helmet";
 import hpp from "hpp";
+import cors from "cors";
+
 // import './passport'
 import oauthroute from "../routes/oauth.route";
 import expressSession from "express-session";
@@ -19,9 +21,12 @@ export const app = express();
 connectdb();
 
 app.use(express.json({ limit: "50mb" }));
+const corsOptions = {
+  origin: "https://simotap.com/",
+};
+
+app.use(cors(corsOptions));
 app.use(cookieParser());
-
-
 
 app.use(mongoSanitize());
 app.use(compression());
