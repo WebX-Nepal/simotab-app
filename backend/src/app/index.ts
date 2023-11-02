@@ -25,23 +25,11 @@ const allowedOrigins = ["https://simotap.com", "http://localhost:5173/"];
 
 app.use(
   cors({
-    origin: ["https://simotap.com", "*"],
+    origin: ["https://simotap.com/", "*"],
     methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
     credentials: true,
   })
 );
-
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Headers, *, Access-Control-Allow-Origin",
-    "Origin, X-Requested-with, Content_Type,Accept,Authorization"
-  );
-  if (req.method === "OPTIONS") {
-    res.header("Access-Control-Allow-Methods", "PUT,POST,PATCH,DELETE,GET");
-    return res.status(200).json({});
-  }
-  next();
-});
 
 app.use(mongoSanitize());
 app.use(compression());
