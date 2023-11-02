@@ -17,9 +17,12 @@ import Footer from "../../components/footer/Footer";
 import Cookies from 'js-cookie'
 import { useDispatch } from "react-redux";
 import { logedin } from "../signin/auth.Slice";
+import ScrollToTopButton from "../../components/ScrollToTopButton";
 
 
 function HomeSection() {
+
+
   const [accordions, setAccordions] = useState([]);
   const dispatch = useDispatch()
 
@@ -60,7 +63,9 @@ function HomeSection() {
   return (
     <>
 
-      <div className="homeSection m-auto ms-[-15px]">
+
+
+      <div className="homeSection m-auto ms-[-15px] ">
         <Section1 />
         <Section2 />
         <Section3 />
@@ -83,7 +88,11 @@ function HomeSection() {
         }
         <Section8 />
       </div>
-      {/* <ScrollToTopButton /> */}
+
+
+
+
+      <ScrollToTopButton />
       <Footer />
     </>
   );

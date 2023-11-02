@@ -6,7 +6,12 @@ import { getData } from "../../services/axios.service";
 import { loadUser } from "../../pages/signin/auth.Slice";
 import ScrollToTop from "../ScrollToTop";
 
+
+
+
 function Navbar() {
+
+
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const { isLogedInStatus, userId, token, current_user_info } = useSelector(
@@ -38,6 +43,11 @@ function Navbar() {
 
   return (
     <>
+
+
+
+
+
       <ScrollToTop />
       <div className={`${styles.nav}`}>
         {
@@ -84,7 +94,7 @@ function Navbar() {
         {current_user_info?.profileImageUrl?.url && (
           <div className="profile-container bts">
             <button onClick={() => navigate('/admin/my-profile')}>
-              <img src={current_user_info.profileImageUrl.url} alt="" className="profile-image w-[50px] h-[50px] rounded-full object-cover   " />
+              <img src={current_user_info.profileImageUrl.url} alt="" className=" profile-image w-[50px] h-[50px] rounded-full object-cover   " />
             </button>
 
           </div>
@@ -101,6 +111,8 @@ function Navbar() {
         </div>
       </div>
       <Outlet />
+
+
     </>
   );
 }

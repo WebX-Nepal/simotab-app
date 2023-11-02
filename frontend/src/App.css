@@ -1,3 +1,46 @@
 body {
   background-color: #ededed;
 }
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Magnify", sans-serif;
+}
+
+.container {
+  position: relative;
+  /* width: 100%; */
+  height: fit-content;
+  background-color: #ededed;
+}
+.container.hovering {
+  background-color: none;
+}
+.particle-div {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+.hidden {
+  display: none;
+}
+
+.hover-div {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.hovering .black-div {
+  background: transparent;
+}
+
+.content-container {
+  position: relative;
+  z-index: 3;
+}

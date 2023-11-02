@@ -23,16 +23,7 @@ a {
   text-decoration: underline 2px #2e2f84;
   text-underline-offset: 5px;
 }
-/* navbar */
-/* .navbar {
-  background-color: aliceblue;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  min-height: 70px;
-} */
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -57,7 +48,7 @@ a {
 
 .signUpBtn {
   position: absolute;
-  right: 60px;
+  right: 80px;
   top: -27px;
 }
 .profile-container {
@@ -77,6 +68,13 @@ a {
     left: -200px;
   }
 }
+@media screen and (max-width: 840px) {
+  .signUpBtn {
+    position: absolute;
+    right: 0;
+    top: -25px;
+  }
+}
 
 /* ul  */
 .navMenu {
@@ -85,7 +83,17 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 25px;
-  margin-right: 20em;
+  margin-right: 25em;
+}
+@media (max-width: 1200px) {
+  .navMenu {
+    /* margin-left: 150px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-right: 10em;
+  }
 }
 
 @media (max-width: 939px) {
@@ -141,7 +149,7 @@ li:hover {
     display: block;
     cursor: pointer;
     position: absolute;
-    right: 86px;
+    right: 9px;
   }
   .signUpBtn {
     margin: 40px auto;
@@ -200,4 +208,10 @@ li:hover {
   .bts {
     display: none;
   }
+}
+
+.hamburger {
+  display: block;
+  cursor: pointer;
+  margin: 3px 2em;
 }

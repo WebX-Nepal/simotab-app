@@ -6,6 +6,16 @@
   gap: 30px;
   margin-bottom: -60px;
 }
+@media (min-width: 300px) and (max-width: 850px) {
+  .aboutUsSection {
+    margin-top: 60px;
+    padding: 0px 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: -60px;
+  }
+}
 
 .aboutUsSection .about {
   display: flex;
@@ -36,6 +46,11 @@
 .aboutUsSection .vision h2 {
   font-size: 30px;
   margin: 0;
+  color: #3b3b3b;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .aboutUsSection .vision p {
@@ -51,6 +66,11 @@
 
 .aboutUsSection .mission h2 {
   font-size: 30px;
+  color: #3b3b3b;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .aboutUsSection .mission p {

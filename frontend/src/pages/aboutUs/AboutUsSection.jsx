@@ -2,17 +2,19 @@ import ScrollToTopButton from "../../components/ScrollToTopButton";
 import Footer from "../../components/footer/Footer";
 import styles from "./aboutUsSection.module.css";
 
+
 function AboutUsSection() {
+
     return (
         <>
             <div className="container bg-black m-auto w-[80%] md:w-[90%] rounded-xl">
                 <img className=' rounded-xl opacity-50 md:h-[356px] md:w-[100%] m-auto object-cover ' src="image/aboutus.png" alt="sdsdsd" />
             </div>
 
-            <div className="relative bottom-[4em] md:bottom-[9em] h-24 w-24 md:h-52 md:w-52 bg-[#308] m-auto rounded-full flex items-center justify-center">
+            <div className="relative bottom-[4em] md:bottom-[9em] h-32 w-32 md:h-52 md:w-52 bg-[#308] m-auto rounded-full flex items-center justify-center">
                 <img className='h-3  md:h-5' src="image/simatap.png" alt="" />
             </div>
-            <h1 className='text-center text-[25px] font-[600]  md:font-[400] md:text-[50px] md:mt-[-2.4em] mt-[-1.5em]'>Simotap Business pvt. ltd</h1>
+            <h1 className='text-center text-[25px] text-[#3B3B3B] font-[600]  md:font-[400] md:text-[50px] md:mt-[-2.4em] mt-[-1.5em]'>Simotap Business pvt. ltd</h1>
             <div className={styles.aboutUsSection}>
                 <div className={styles.about}>
 
