@@ -46,6 +46,20 @@ body {
   z-index: 3;
 }
 
+@media (min-width: 300px) and (max-width: 1500px) {
+  .content-container {
+    position: relative;
+    z-index: 3;
+    width: 100vw;
+  }
+}
+
+.content-container {
+  position: relative;
+  z-index: 3;
+  width: vw;
+}
+
 #tsparticles {
-  display: none;
+  /* display: none; */
 }

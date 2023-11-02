@@ -7,6 +7,16 @@
   max-width: 100%;
   overflow-x: hidden;
 }
+
+.shopSection {
+  margin-top: 110px;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .shopSection h1 {
   margin: 0;
   font-size: 64px;
@@ -130,7 +140,7 @@
   flex-wrap: wrap;
   gap: 97px;
 }
-@media screen and (max-width: 927px) {
+@media screen and (max-width: 785px) {
   .shopSection .sectionSearch .scrollContainer {
     display: flex;
     align-items: center;
@@ -141,7 +151,8 @@
     padding: 10px;
     border-radius: 50px;
     background-color: white;
-    max-width: 80%;
+    max-width: 20%;
+    z-index: 0;
   }
 }
 

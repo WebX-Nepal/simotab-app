@@ -201,6 +201,7 @@ li:hover {
     width: 100%;
     /* gap: 8px; */
     justify-content: flex-start;
+    z-index: 100;
   }
 
   .navMenu.active {
