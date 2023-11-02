@@ -6,4 +6,4 @@ app.listen(env.PORT, () => {
   console.log(` server is running running  ${env.PORT}`);
 });
 app.use(cors());
-app.options("*", cors());
+app.options("https://simotap.com/", cors());
