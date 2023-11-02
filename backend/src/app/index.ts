@@ -24,8 +24,9 @@ app.use(cookieParser());
 const allowedOrigins = ["https://simotap.com", "http://localhost:5173/"];
 
 const corsOptions = {
-  origin: allowedOrigins,
-  methods: "GET,POST,PUT,DELETE",
+  // origin: allowedOrigins,
+  origin: "*",
+  methods: "GET,POST,PUT,PATCH,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
 };
