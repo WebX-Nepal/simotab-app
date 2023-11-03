@@ -2,7 +2,6 @@ import "./index.css";
 import { useEffect, useState } from "react";
 import { getDataWithoutHeader } from "../../../services/axios.service";
 import Products from "../../../components/cards/Product/Product.card";
-import MenuIcon from "@mui/icons-material/Menu";
 import DrawerAdmin from "../../../components/Drawer";
 const MyCards = () => {
   const [FeatureProduct, setFeatureProduct] = useState([]);
@@ -18,12 +17,6 @@ const MyCards = () => {
   return (
     <>
       <div className="ms-[40px]">
-        <button
-          className="ms-[200px] mt-10 text-2xl"
-          onClick={() => setisDrawerOpen(true)}
-        >
-          <MenuIcon />
-        </button>
         <DrawerAdmin
           isDrawerOpen={isDrawerOpen}
           setisDrawerOpen={setisDrawerOpen}

@@ -21,6 +21,7 @@ import SecureRoute from "./secure_routes/login_user_only";
 import Setting from "./pages/admin/Setting";
 import UserProfile from "./pages/UserProfile";
 import Sidebar from "./components/Slidebar";
+import UnderMaintainance from "./pages/admin/UnderMaintance";
 
 function App() {
   return (
@@ -40,23 +41,28 @@ function App() {
 
         {/* admin routes */}
 
-        <Route path="/admin" element={<SecureRoute />}>
-          <Route path="/admin/my-profile" element={<MyProfile />} />
-          <Route path="/admin/my-cards" element={<MyCards />} />
-          <Route path="/admin/contacts" element={<Contact />} />
-          <Route path="/admin/contacts/:id" element={<UpdateContact />} />
-          <Route
-            path="/admin/create-contact-form"
-            element={<CreateContact />}
-          />
-          <Route path="/admin/edit-profile" element={<EditProfile />} />
-          <Route path="/admin/edit-profile/:id" element={<UpdateLink />} />
-          <Route path="/admin/create-link" element={<CreateLink />} />
-          <Route path="/admin/help" element={<Setting />} />
-          <Route path="/admin/setting" element={<Setting />} />
-          <Route path="/admin/buy-simotap" element={<Setting />} />
-          <Route path="/admin/Booking" element={<Setting />} />
-          <Route path="/admin/social-media-kits" element={<Setting />} />
+        <Route path="/" element={<Sidebar />}>
+          <Route path="/admin" element={<SecureRoute />}>
+            <Route path="/admin/my-profile" element={<MyProfile />} />
+            <Route path="/admin/my-cards" element={<MyCards />} />
+            <Route path="/admin/contacts" element={<Contact />} />
+            <Route path="/admin/contacts/:id" element={<UpdateContact />} />
+            <Route
+              path="/admin/create-contact-form"
+              element={<CreateContact />}
+            />
+            <Route path="/admin/edit-profile" element={<EditProfile />} />
+            <Route path="/admin/edit-profile/:id" element={<UpdateLink />} />
+            <Route path="/admin/create-link" element={<CreateLink />} />
+            <Route path="/admin/help" element={<UnderMaintainance />} />
+            <Route path="/admin/settings" element={<Setting />} />
+            <Route path="/admin/buy-simotap" element={<UnderMaintainance />} />
+            <Route path="/admin/Booking" element={<UnderMaintainance />} />
+            <Route
+              path="/admin/social-media-kits"
+              element={<UnderMaintainance />}
+            />
+          </Route>
         </Route>
 
         <Route path="/user-profile/:id" element={<UserProfile />} />

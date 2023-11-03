@@ -108,62 +108,64 @@ const MyProfile = () => {
   return (
     <>
       <div className="profile-nav-section">
-        <div className="top-nav">
-          <div className="top-nav-item">
-            <button className="text-2xl" onClick={() => setisDrawerOpen(true)}>
-              <CgMenuLeft />
-            </button>
-            <DrawerAdmin
-              isDrawerOpen={isDrawerOpen}
-              setisDrawerOpen={setisDrawerOpen}
-            />
-            <img
-              src="../../../../assets/logo.png"
-              className="nav-logo"
-              alt="loading"
-            />
-            <div className="qr-scan">
-              <button onClick={() => handleOpenQrScan()}>
-                <svg
-                  className=" cursor-pointer text-xl"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                >
-                  <path
-                    d="M20.7143 10.7143L15.0314 5L9.28571 10.7143M15.0314 5.03V22.1429M10.7143 15H7.85714C7.09938 15 6.37266 15.301 5.83684 15.8368C5.30102 16.3727 5 17.0994 5 17.8571V23.5714C5 24.3292 5.30102 25.0559 5.83684 25.5917C6.37266 26.1276 7.09938 26.4286 7.85714 26.4286H22.1429C22.9006 26.4286 23.6273 26.1276 24.1632 25.5917C24.699 25.0559 25 24.3292 25 23.5714V17.8571C25 17.0994 24.699 16.3727 24.1632 15.8368C23.6273 15.301 22.9006 15 22.1429 15H19.2857"
-                    stroke="black"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              <div>
-                <Modal
-                  open={openQrScan}
-                  onClose={handleCloseQrScan}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box className="Qr-Model-pop-up">
-                    <Typography
-                      id="modal-modal-title"
-                      variant="h6"
-                      component="h2"
-                    ></Typography>
-                    <QrScanCode />
-                  </Box>
-                </Modal>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {user && (
           <div className="profile-wrapper">
+            <div className="top-nav ml-[-1px] w-[440px] ">
+              <div className="top-nav-item">
+                <button
+                  className="text-2xl"
+                  onClick={() => setisDrawerOpen(true)}
+                >
+                  <CgMenuLeft />
+                </button>
+                <DrawerAdmin
+                  isDrawerOpen={isDrawerOpen}
+                  setisDrawerOpen={setisDrawerOpen}
+                />
+                <img
+                  src="../../../../assets/logo.png"
+                  className="nav-logo"
+                  alt="loading"
+                />
+                <div className="qr-scan">
+                  <button onClick={() => handleOpenQrScan()}>
+                    <svg
+                      className=" cursor-pointer text-xl"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                    >
+                      <path
+                        d="M20.7143 10.7143L15.0314 5L9.28571 10.7143M15.0314 5.03V22.1429M10.7143 15H7.85714C7.09938 15 6.37266 15.301 5.83684 15.8368C5.30102 16.3727 5 17.0994 5 17.8571V23.5714C5 24.3292 5.30102 25.0559 5.83684 25.5917C6.37266 26.1276 7.09938 26.4286 7.85714 26.4286H22.1429C22.9006 26.4286 23.6273 26.1276 24.1632 25.5917C24.699 25.0559 25 24.3292 25 23.5714V17.8571C25 17.0994 24.699 16.3727 24.1632 15.8368C23.6273 15.301 22.9006 15 22.1429 15H19.2857"
+                        stroke="black"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <div>
+                    <Modal
+                      open={openQrScan}
+                      onClose={handleCloseQrScan}
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
+                      <Box className="Qr-Model-pop-up">
+                        <Typography
+                          id="modal-modal-title"
+                          variant="h6"
+                          component="h2"
+                        ></Typography>
+                        <QrScanCode />
+                      </Box>
+                    </Modal>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="second-wrapper">
               <div className="profile-cover-image">
                 <img

@@ -208,7 +208,12 @@ export default function Sidebar() {
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
-                onClick={index === 2 ? handleLogout : console.log("nepal")}
+                // onClick={index === 2 ? handleLogout : console.log("sd js djn")}
+                onClick={() => {
+                  index != 2
+                    ? navigate(`/admin/${text.toLowerCase()}`)
+                    : handleLogout();
+                }}
               >
                 <ListItemIcon
                   sx={{

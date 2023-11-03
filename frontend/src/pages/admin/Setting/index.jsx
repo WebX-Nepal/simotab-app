@@ -24,7 +24,7 @@ const Setting = () => {
 
   return (
     <>
-      <div className="ml-[20vw] mx-auto mb-2 mt-10 p-10  ">
+      <div className="ml-[20vw] mx-auto mb-2  p-10  ">
         <div className="setting-change-name shadow-lg mt-3 p-10 w-[60vw] bg-white">
           <h1 className="setting-change-name-title text-xl font-bold">
             Change Name
