@@ -57,7 +57,7 @@ body {
 .content-container {
   position: relative;
   z-index: 3;
-  width: vw;
+  width: 98.9vw;
 }
 
 #tsparticles {
