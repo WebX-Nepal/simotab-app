@@ -1,0 +1,12 @@
+.btn1 {
+    color: white;
+    background: linear-gradient(#2e2f84, #652e91);
+    border: none;
+    border: 2px solid rebeccapurple;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    justify-content: center;
+    margin:0 5px !important;
+  
+  }
