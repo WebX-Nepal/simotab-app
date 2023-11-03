@@ -51,6 +51,7 @@ a {
   right: 80px;
   top: -27px;
 }
+
 .profile-container {
   float: left;
 }
@@ -58,12 +59,23 @@ a {
 .profile-image {
   margin-left: 500px;
 }
+
+@media screen and (max-width: 879px) {
+  button img {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    height: 45px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .signUpBtn {
     position: absolute;
     right: 0;
     top: -25px;
   }
+
   .profile-container {
     left: -200px;
   }
