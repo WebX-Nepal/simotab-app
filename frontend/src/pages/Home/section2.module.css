@@ -132,7 +132,7 @@
 
   .right video {
     /* margin: 53px 0; */
-    margin-top: 5em;
+    margin-top: 10em;
     max-height: 200px;
     border-radius: 25px;
   }
@@ -185,5 +185,33 @@
   .right video {
     width: 100vw; /* Ensure video doesn't overflow */
     border-radius: 25px;
+  }
+}
+
+@media (max-width: 1078px) {
+  .section2 {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .left {
+    width: 100%; /* Take up most of the screen width */
+    text-align: center;
+    margin: 20px auto; /* Adjust spacing */
+    gap: 40px;
+  }
+  .left h1 {
+    width: 100%; /* Take up most of the screen width */
+    text-align: center;
+    margin: 20px auto; /* Adjust spacing */
+    gap: 40px;
+  }
+  .right video {
+    width: 100%; /* Take up most of the screen width */
+    text-align: center;
+    gap: 40px;
+  }
+  .left button {
+    margin: 2em auto;
   }
 }

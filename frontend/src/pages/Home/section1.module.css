@@ -131,8 +131,8 @@
     align-items: center;
   }
   .right img {
-    width: 290px;
-    height: 250px;
+    width: 370px;
+    height: 230px;
   }
   .section1 .bottom {
     gap: 20px;
@@ -172,5 +172,12 @@
   }
   .section1 .bottom {
     display: none;
+  }
+}
+
+@media (max-width: 1078px) {
+  .section1 .top {
+    flex-direction: column;
+    width: 100%;
   }
 }
