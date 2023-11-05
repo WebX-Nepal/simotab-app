@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { errorToast, successToast } from "../../../services/toast.service";
-import DrawerAdmin from "../../../components/Drawer";
+// import DrawerAdmin from "../../../components/Drawer";
 import {
   Button,
   Dialog,
@@ -32,7 +32,7 @@ const Contact = () => {
     email: "",
   });
   // drawer open and close
-  const [isDrawerOpen, setisDrawerOpen] = useState(false);
+  // const [isDrawerOpen, setisDrawerOpen] = useState(false);
   const [search, setsearch] = useState("");
   const [Contacts, setContacts] = useState([]);
 
@@ -76,7 +76,6 @@ const Contact = () => {
     }
   };
 
-
   // for form submit after getting updated
   const UpdateDataSubmitHandler = async (id) => {
     const response = await updateDataWithHeader(
@@ -110,29 +109,8 @@ const Contact = () => {
 
   return (
     <>
-      <div className="container bg-white max-w-[500px] m-auto rounded-[20px] p-[10px]  ">
-        <div className=" first mt-5 flex justify-center items-center gap-[50px] md:gap-[60px] mr-[100px]">
-          <DrawerAdmin
-            isDrawerOpen={isDrawerOpen}
-            setisDrawerOpen={setisDrawerOpen}
-          />
-          <button onClick={() => setisDrawerOpen(true)}>
-            <svg
-              className="mt-4 cursor-pointer"
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="25"
-              viewBox="0 0 16 25"
-              fill="none"
-            >
-              <path
-                d="M14 2L3 12.5L14 23"
-                stroke="black"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
+      <div className="container mt-[-16px] min-h-[90vh] bg-white max-w-[500px] m-auto rounded-[20px] p-[10px]  ">
+        <div className=" first flex justify-between items-center mx-[30px] ">
           <h1 className="mt-4 text-[24px] font-[400]">CONTACT</h1>
           <svg
             className="mt-4 cursor-pointer"
@@ -178,192 +156,203 @@ const Contact = () => {
         </div>
 
         {/* API */}
-        <div className="users ms-20">
+        <div className="w-full  px-4 flex items-center justify-center flex-col">
           {Contacts &&
             Contacts.map((contract) => {
               console.log(contract);
               return (
-                <div
-                  className="user mt-5 flex justify-center w-[80%] md:w-[70%] items-center gap-3"
-                  key={contract?._id}
-                >
-                  <svg
-                    className="p-[5px] border rounded-full bg-[#EEE] cursor-pointer"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="50"
-                    height="50"
-                    viewBox="0 0 30 30"
-                    fill="none"
+                <>
+                  <div
+                    className="user mt-5 flex justify-between w-[80%] items-center mx-12"
+                    key={contract?._id}
                   >
-                    <g clipPath="url(#clip0_701_523)">
-                      <g filter="url(#filter0_d_701_523)">
-                        <path
-                          d="M15 15C16.7405 15 18.4097 14.3086 19.6404 13.0779C20.8711 11.8472 21.5625 10.178 21.5625 8.4375C21.5625 6.69702 20.8711 5.02782 19.6404 3.79711C18.4097 2.5664 16.7405 1.875 15 1.875C13.2595 1.875 11.5903 2.5664 10.3596 3.79711C9.1289 5.02782 8.4375 6.69702 8.4375 8.4375C8.4375 10.178 9.1289 11.8472 10.3596 13.0779C11.5903 14.3086 13.2595 15 15 15ZM7.03125 16.875C6.16101 16.875 5.32641 17.2207 4.71106 17.8361C4.0957 18.4514 3.75 19.286 3.75 20.1562V20.625C3.75 22.8684 5.17781 24.7659 7.20469 26.0559C9.24281 27.3534 12.0019 28.125 15 28.125C17.9981 28.125 20.7563 27.3534 22.7953 26.0559C24.8222 24.7659 26.25 22.8684 26.25 20.625V20.1562C26.25 19.286 25.9043 18.4514 25.2889 17.8361C24.6736 17.2207 23.839 16.875 22.9688 16.875H7.03125Z"
-                          fill="#666666"
-                        />
+                    <svg
+                      className="p-[5px] border rounded-full bg-[#EEE] cursor-pointer"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                    >
+                      <g clipPath="url(#clip0_701_523)">
+                        <g filter="url(#filter0_d_701_523)">
+                          <path
+                            d="M15 15C16.7405 15 18.4097 14.3086 19.6404 13.0779C20.8711 11.8472 21.5625 10.178 21.5625 8.4375C21.5625 6.69702 20.8711 5.02782 19.6404 3.79711C18.4097 2.5664 16.7405 1.875 15 1.875C13.2595 1.875 11.5903 2.5664 10.3596 3.79711C9.1289 5.02782 8.4375 6.69702 8.4375 8.4375C8.4375 10.178 9.1289 11.8472 10.3596 13.0779C11.5903 14.3086 13.2595 15 15 15ZM7.03125 16.875C6.16101 16.875 5.32641 17.2207 4.71106 17.8361C4.0957 18.4514 3.75 19.286 3.75 20.1562V20.625C3.75 22.8684 5.17781 24.7659 7.20469 26.0559C9.24281 27.3534 12.0019 28.125 15 28.125C17.9981 28.125 20.7563 27.3534 22.7953 26.0559C24.8222 24.7659 26.25 22.8684 26.25 20.625V20.1562C26.25 19.286 25.9043 18.4514 25.2889 17.8361C24.6736 17.2207 23.839 16.875 22.9688 16.875H7.03125Z"
+                            fill="#666666"
+                          />
+                        </g>
                       </g>
-                    </g>
-                    <defs>
-                      <filter
-                        id="filter0_d_701_523"
-                        x="2.75"
-                        y="1.875"
-                        width="24.5"
-                        height="28.25"
-                        filterUnits="userSpaceOnUse"
-                        colorInterpolationFilters="sRGB"
-                      >
-                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix
-                          in="SourceAlpha"
-                          type="matrix"
-                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                          result="hardAlpha"
-                        />
-                        <feOffset dy="1" />
-                        <feGaussianBlur stdDeviation="0.5" />
-                        <feComposite in2="hardAlpha" operator="out" />
-                        <feColorMatrix
-                          type="matrix"
-                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                        />
-                        <feBlend
-                          mode="normal"
-                          in2="BackgroundImageFix"
-                          result="effect1_dropShadow_701_523"
-                        />
-                        <feBlend
-                          mode="normal"
-                          in="SourceGraphic"
-                          in2="effect1_dropShadow_701_523"
-                          result="shape"
-                        />
-                      </filter>
-                      <clipPath id="clip0_701_523">
-                        <rect width="30" height="30" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-
-                  <div className="details flex flex-col ">
-                    <h1 type="name" className="name text-[16px] font-[400]">
-                      {contract?.name}
-                    </h1>
-                    <p type="email" className="text-[13px]">
-                      {contract?.email}
-                    </p>
-                    <p type="email" className="text-[13px]">
-                      {contract?.phone}
-                    </p>
-                    <p type="date" className="text-[10px]">
-                      {contract?.createdAt}
-                    </p>
-                  </div>
-
-                  <div className="ms-5 flex gap-5">
-                    <button onClick={() => editContactHandler(contract._id)}>
-                      {" "}
-                      <EditIcon />
-                    </button>
-                    {updData.name && updData.email && updData.phone && (
-                      <div>
-                        <Dialog
-                          open={open}
-                          onClose={() => setOpen(false)}
-                          aria-labelledby="dialog-title"
-                          aria-describedby="dialog-description"
-                          className="ms-[25%] w-[1000px] mb-[200px] rounded-[50px]"
+                      <defs>
+                        <filter
+                          id="filter0_d_701_523"
+                          x="2.75"
+                          y="1.875"
+                          width="24.5"
+                          height="28.25"
+                          filterUnits="userSpaceOnUse"
+                          colorInterpolationFilters="sRGB"
                         >
-                          <DialogTitle id="dialog-title " className="text-center">
-                            Update-contact-form
-                          </DialogTitle>
-                          <DialogContent>
-                            <div className="max-w-md mx-auto mb-2 mt-10">
-                              <div className="mb-4">
-                                <label htmlFor="name">Name:</label>
-                                <input
-                                  type="text"
-                                  id="name"
-                                  name="name"
-                                  value={updData.name}
-                                  onChange={(e) => {
-                                    e.preventDefault();
-                                    setupdData({
-                                      ...updData,
-                                      name: e.target.value,
-                                    });
-                                  }}
-                                  className="mb-2 block p-2 w-[400px] border"
-                                ></input>
-                              </div>
-                              <div className="mb-4">
-                                <label htmlFor="email">Email:</label>
-                                <input
-                                  type="email"
-                                  id="email"
-                                  name="email"
-                                  value={updData.email}
-                                  onChange={(e) => {
-                                    e.preventDefault();
+                          <feFlood
+                            floodOpacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="1" />
+                          <feGaussianBlur stdDeviation="0.5" />
+                          <feComposite in2="hardAlpha" operator="out" />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_701_523"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_701_523"
+                            result="shape"
+                          />
+                        </filter>
+                        <clipPath id="clip0_701_523">
+                          <rect width="30" height="30" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
 
-                                    setupdData({
-                                      ...updData,
-                                      email: e.target.value,
-                                    });
-                                  }}
-                                  className="mb-2 p-2 w-full border"
-                                ></input>
-                              </div>
-                              <div className="mb-4">
-                                <label htmlFor="phone">Phone No:</label>
-                                <input
-                                  type="text"
-                                  id="phone"
-                                  name="phone"
-                                  value={updData.phone}
-                                  onChange={(e) => {
-                                    e.preventDefault();
-                                    setupdData({
-                                      ...updData,
-                                      phone: e.target.value,
-                                    });
-                                  }}
-                                  className="mb-2 p-2 w-full border"
-                                ></input>
-                              </div>
-                            </div>
-                          </DialogContent>
-                          <DialogActions>
-                            <Button onClick={() => setOpen(false)}>
-                              Cancel
-                            </Button>
-                            <Button
-                              onClick={(e) => {
-                                e.preventDefault();
+                    <div className="details flex flex-col ">
+                      <h1 type="name" className="name text-[16px] font-[400]">
+                        {contract?.name}
+                      </h1>
+                      <p type="email" className="text-[13px]">
+                        {contract?.email}
+                      </p>
+                      <p type="email" className="text-[13px]">
+                        {contract?.phone}
+                      </p>
+                      <p type="date" className="text-[10px]">
+                        {contract?.createdAt}
+                      </p>
+                    </div>
 
-                                UpdateDataSubmitHandler(contract._id);
-                              }}
-                              autoFocus
+                    <div className="ms-5 flex gap-5">
+                      <button onClick={() => editContactHandler(contract._id)}>
+                        {" "}
+                        <EditIcon />
+                      </button>
+                      {updData.name && updData.email && updData.phone && (
+                        <div>
+                          <Dialog
+                            open={open}
+                            onClose={() => setOpen(false)}
+                            aria-labelledby="dialog-title"
+                            aria-describedby="dialog-description"
+                            className="ms-[25%] w-[1000px] mb-[200px] rounded-[50px]"
+                          >
+                            <DialogTitle
+                              id="dialog-title "
+                              className="text-center"
                             >
-                              Update
-                            </Button>
-                          </DialogActions>
-                        </Dialog>
-                      </div>
-                    )}
-                    <button onClick={() => deleteContactHandler(contract._id)}>
-                      <DeleteIcon />
-                    </button>
+                              Update-contact-form
+                            </DialogTitle>
+                            <DialogContent>
+                              <div className="max-w-md mx-auto mb-2 mt-10">
+                                <div className="mb-4">
+                                  <label htmlFor="name">Name:</label>
+                                  <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={updData.name}
+                                    onChange={(e) => {
+                                      e.preventDefault();
+                                      setupdData({
+                                        ...updData,
+                                        name: e.target.value,
+                                      });
+                                    }}
+                                    className="mb-2 block p-2 w-[400px] border"
+                                  ></input>
+                                </div>
+                                <div className="mb-4">
+                                  <label htmlFor="email">Email:</label>
+                                  <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={updData.email}
+                                    onChange={(e) => {
+                                      e.preventDefault();
+
+                                      setupdData({
+                                        ...updData,
+                                        email: e.target.value,
+                                      });
+                                    }}
+                                    className="mb-2 p-2 w-full border"
+                                  ></input>
+                                </div>
+                                <div className="mb-4">
+                                  <label htmlFor="phone">Phone No:</label>
+                                  <input
+                                    type="text"
+                                    id="phone"
+                                    name="phone"
+                                    value={updData.phone}
+                                    onChange={(e) => {
+                                      e.preventDefault();
+                                      setupdData({
+                                        ...updData,
+                                        phone: e.target.value,
+                                      });
+                                    }}
+                                    className="mb-2 p-2 w-full border"
+                                  ></input>
+                                </div>
+                              </div>
+                            </DialogContent>
+                            <DialogActions>
+                              <Button onClick={() => setOpen(false)}>
+                                Cancel
+                              </Button>
+                              <Button
+                                onClick={(e) => {
+                                  e.preventDefault();
+
+                                  UpdateDataSubmitHandler(contract._id);
+                                }}
+                                autoFocus
+                              >
+                                Update
+                              </Button>
+                            </DialogActions>
+                          </Dialog>
+                        </div>
+                      )}
+                      <button
+                        onClick={() => deleteContactHandler(contract._id)}
+                      >
+                        <DeleteIcon />
+                      </button>
+                    </div>
                   </div>
-                </div>
+                  <div className="w-full px-12 ">
+                    <hr className="mt-4" />
+                  </div>
+                </>
               );
             })}
-
-          {/* API */}
         </div>
 
         <button
-          className="my-[90px] m-auto flex justify-center items-center bg-gradient-to-r from-[#2D2F84] to-[#662E91] h-[50px] md:w-[370px] w-[300px] text-[#FFFFFF] rounded-full ml-[55px]"
+          className=" m-auto flex justify-center items-center bg-gradient-to-r from-[#2D2F84] to-[#662E91] h-[50px] md:w-[370px] w-[300px] text-[#FFFFFF] rounded-full ml-[55px]  bottom-32 fixed"
           onClick={() => navigate("/admin/create-contact-form")}
         >
           Add new connection

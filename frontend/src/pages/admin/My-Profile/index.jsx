@@ -202,7 +202,7 @@ const MyProfile = () => {
                 </button>
               </div>
 
-              <div className="social-media-links">
+              <div className="social-media-links   grid grid-cols-4 w-full py-4 m-2 ">
                 {current_user_info.socialMediaLinks.map((socialMediaLink) => {
                   return (
                     <div key={socialMediaLink._id} className="">

@@ -109,12 +109,12 @@
 }
 
 .social-media-links {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  width: 400px;
-  margin: 20px 0;
-  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  overflow: hidden; */
 }
 
 /* removng the default style of ancor tag for overall profile page  */

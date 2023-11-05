@@ -104,7 +104,7 @@ export default function Sidebar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState("none");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -113,6 +113,8 @@ export default function Sidebar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const [showEditProfile, setshowEditProfile] = React.useState("none");
 
   const handleLogout = () => {
     dispatch(logedOut());
@@ -129,7 +131,6 @@ export default function Sidebar() {
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
-              marginRight: 20,
               color: "black",
 
               ...(open && { display: "none" }),
@@ -137,7 +138,7 @@ export default function Sidebar() {
           >
             <MenuIcon />
           </IconButton>
-          <div className="nav">
+          <div className="nav w-full">
             <NavLink to="/" className="logo">
               <img src="../../../image/logo.png" />
             </NavLink>
@@ -158,6 +159,7 @@ export default function Sidebar() {
         <List>
           {[
             "My-Profile",
+            "Edit-profile",
             "Contacts",
             "My-Cards",
             "My-Pets",
@@ -166,7 +168,14 @@ export default function Sidebar() {
             "Social-Media-kits",
             "Buy-Simotap",
           ].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+            <ListItem
+              key={text}
+              disablePadding
+              sx={{
+                display: `${index === 1 ? `${showEditProfile}` : "block"}`,
+                marginLeft: `${index === 1 ? "20px" : "0"}`,
+              }}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -175,6 +184,12 @@ export default function Sidebar() {
                 }}
                 onClick={() => {
                   navigate(`/admin/${text.toLowerCase()}`);
+                  if (index === 0 && showEditProfile === "none") {
+                    setshowEditProfile("block");
+                  }
+                  if (index === 0 && showEditProfile === "block") {
+                    setshowEditProfile("none");
+                  }
                 }}
               >
                 <ListItemIcon
@@ -186,12 +201,13 @@ export default function Sidebar() {
                 >
                   {index === 0 && <Person2Icon />}
                   {index === 1 && <ContactMailIcon />}
-                  {index === 2 && <DashboardIcon />}
-                  {index === 3 && <PetsIcon />}
-                  {index === 4 && <KeyIcon />}
-                  {index === 5 && <BookmarkIcon />}
-                  {index === 6 && <TagIcon />}
-                  {index === 7 && <ShoppingCartIcon />}
+                  {index === 2 && <ContactMailIcon />}
+                  {index === 3 && <DashboardIcon />}
+                  {index === 4 && <PetsIcon />}
+                  {index === 5 && <KeyIcon />}
+                  {index === 6 && <BookmarkIcon />}
+                  {index === 7 && <TagIcon />}
+                  {index === 8 && <ShoppingCartIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -208,7 +224,6 @@ export default function Sidebar() {
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
-                // onClick={index === 2 ? handleLogout : console.log("sd js djn")}
                 onClick={() => {
                   index != 2
                     ? navigate(`/admin/${text.toLowerCase()}`)
