@@ -5,6 +5,7 @@ function Section2() {
     return (
 
         <section className={styles.section2}>
+
             <div className={styles.left}>
                 <h1>Share anything, <br />
                     with a single Tap or <br />
@@ -23,6 +24,8 @@ function Section2() {
             <div className={styles.right}>
                 <video src='../../../assets/video.mp4' muted autoPlay></video>
             </div>
+
+
         </section>
 
     )

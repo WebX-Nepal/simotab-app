@@ -24,7 +24,7 @@
   padding-bottom: 10px;
 }
 .left h1 {
-  font-size: 64px;
+  font-size: 4rem;
   font-weight: 700;
   margin: 0;
 }
@@ -35,7 +35,7 @@
   margin: 0px 0;
 }
 .left p {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 600;
 }
 .btn {
@@ -46,7 +46,7 @@
 .left button {
   margin: 15px 0px 20px;
   outline: none;
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 600;
   padding: 12px 40px;
   border-radius: 50px;
@@ -105,7 +105,7 @@
 }
 .bottom p {
   color: #797979;
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
@@ -124,7 +124,7 @@
 /* Responsive styles for smaller screens */
 @media (min-width: 769px) and (max-width: 950px) {
   .left h1 {
-    font-size: 50px; /* Decrease font size for smaller screens */
+    font-size: 3rem; /* Decrease font size for smaller screens */
   }
   .top .right {
     justify-content: center;
@@ -137,6 +137,12 @@
   .section1 .bottom {
     gap: 20px;
   }
+  .left button {
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 0.5rem 1.7rem;
+  }
 }
 @media screen and (max-width: 768px) {
   .section1 {
@@ -146,9 +152,7 @@
   .section1 .top {
     padding: 0;
   }
-  .top .right {
-    /* display: none; */
-  }
+
   .top .left {
     width: 100%;
     /* align-items: center; */
@@ -158,20 +162,21 @@
   }
   .left h1 {
     margin: 20px 0;
-    font-size: 30px; /* Decrease font size for smaller screens */
+    font-size: 2.2rem; /* Decrease font size for smaller screens */
   }
-  .element {
-    /* margin: 25px auto; */
-  }
+
   .left .btn {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 40px;
+
     justify-content: center;
   }
   .section1 .bottom {
     display: none;
+  }
+  .right img {
+    max-width: 50vw;
   }
 }
 
@@ -179,5 +184,42 @@
   .section1 .top {
     flex-direction: column;
     width: 100%;
+  }
+}
+@media (max-width: 514px) {
+  .left .btn {
+    display: flex;
+    gap: 0.5em;
+  }
+  .left button {
+    font-size: 0.6rem;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 0.5rem 1.7rem;
+  }
+}
+
+/* for mobile devices  */
+@media (max-width: 462px) {
+  .section1 {
+    padding: 0 3em;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .section1 .top {
+    flex-direction: column-reverse;
+  }
+  .left h1 {
+    text-align: start;
+  }
+
+  .left p {
+    text-align: start;
+  }
+  .left .btn {
+    justify-content: start;
+  }
+  .right img {
+    max-width: 80vw;
   }
 }

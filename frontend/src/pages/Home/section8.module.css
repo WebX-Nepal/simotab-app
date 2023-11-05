@@ -81,8 +81,9 @@
   .section8 {
     padding: 0 10px;
   }
+
   .section8 h1 {
-    font-size: 22px;
+    font-size: 2rem;
     font-weight: 600;
   }
 
@@ -94,6 +95,41 @@
   }
 
   .inputGroup input {
+    width: 100%;
+  }
+}
+
+@media (min-width: 462px) and (max-width: 665px) {
+  .section8 {
+    margin-top: 1rem;
+    padding: 0 3em;
+    align-items: self-start;
+  }
+}
+
+/* for mobile devices  */
+@media (max-width: 462px) {
+  .section8 {
+    margin-top: 1rem;
+    padding: 0 3em;
+    align-items: self-start;
+  }
+
+  .section8 h1 {
+    display: flex;
+  }
+  .section8 textarea {
+    width: 100%;
+    max-width: 621px; /* Set a maximum width for the textarea */
+    padding: 16px;
+    border-radius: 16px;
+    /* border: 2px solid rebeccapurple; */
+    font-size: 22px;
+    font-weight: 500;
+    outline: none;
+    margin: 0px;
+  }
+  .inputGroup {
     width: 100%;
   }
 }

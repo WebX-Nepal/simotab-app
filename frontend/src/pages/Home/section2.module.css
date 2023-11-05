@@ -12,8 +12,9 @@
   justify-content: center;
   gap: 20px;
   padding: 0;
-  margin: 50px 100px 20px 0px;
+  margin: 50px 30px 10px 0px;
 }
+
 .left h1 {
   margin: 0;
   font-size: 50px;
@@ -64,10 +65,9 @@
   color: #ededed;
 }
 .right {
-  width: 40%;
+  width: 37%;
   display: flex;
-  justify-content: flex-start;
-
+  justify-content: center;
   margin-top: 70px;
 }
 
@@ -132,7 +132,7 @@
 
   .right video {
     /* margin: 53px 0; */
-    margin-top: 10em;
+    margin-top: 8em;
     max-height: 200px;
     border-radius: 25px;
   }
@@ -167,23 +167,10 @@
   .text {
     margin: 250px auto;
   }
-  .right {
-    display: flex;
-    max-width: 40%; /* Take up most of the screen width */
-    position: absolute;
-    top: 90px;
-    margin: 30px auto;
-  }
 
   .right video {
-    width: 100%; /* Ensure video doesn't overflow */
-    border-radius: 25px;
-  }
-}
-
-@media (max-width: 600px) {
-  .right video {
-    width: 100vw; /* Ensure video doesn't overflow */
+    /* width: 100%; */
+    /* Ensure video doesn't overflow */
     border-radius: 25px;
   }
 }
@@ -207,11 +194,80 @@
     gap: 40px;
   }
   .right video {
-    width: 100%; /* Take up most of the screen width */
+    /* width: 100%;  */
+    /* Take up most of the screen width */
     text-align: center;
     gap: 40px;
   }
   .left button {
     margin: 2em auto;
+  }
+  .right {
+    width: 40%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 701px) {
+  .right {
+    /* width: 100%; */
+    justify-content: center;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 901px) {
+  .text p {
+    margin-top: -2rem;
+  }
+  .right video {
+    margin-top: 8em;
+  }
+}
+@media (min-width: 416px) and (max-width: 600px) {
+  .right video {
+    margin-top: 5em;
+  }
+  .text p {
+    margin-top: -5rem;
+  }
+}
+
+/* for mobile devices  */
+@media (max-width: 462px) {
+  .section2 {
+    padding: 0 3em;
+    margin-top: -2rem;
+  }
+  .left h1 {
+    text-align: start;
+  }
+
+  .left p {
+    text-align: start;
+  }
+  .left button {
+    margin: 2em 0px 0px 0px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 50px;
+  }
+  .right video {
+    margin-top: 5em;
+    max-width: 70vw;
+  }
+}
+
+@media (max-width: 416px) {
+  .right video {
+    /* margin-top: 0rem; */
+    align-items: center;
+    max-width: 70vw;
+    margin-top: 6em;
+  }
+  .text p {
+    margin-top: -3rem;
+  }
+  .section2 {
+    flex-direction: column-reverse;
   }
 }

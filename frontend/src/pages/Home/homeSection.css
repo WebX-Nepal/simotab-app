@@ -343,3 +343,16 @@
 .homeSection .section7 .accordion {
   width: 100%;
 }
+
+/* @media (min-width: 462px) and (max-width: 665px) {
+  .homeSection .section7 {
+    padding: 0 3rem;
+  }
+} */
+
+/* for mobile devices  */
+@media (max-width: 462px) {
+  .homeSection .section7 {
+    padding: 0px 3rem;
+  }
+}

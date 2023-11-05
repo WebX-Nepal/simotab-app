@@ -63,7 +63,7 @@ a {
 @media screen and (max-width: 879px) {
   button img {
     position: absolute;
-    left: 10px;
+    right: 20%;
     top: 10px;
     height: 45px;
   }
@@ -231,4 +231,13 @@ li:hover {
   display: block;
   cursor: pointer;
   margin: 3px 2em;
+}
+
+/* for mobile devices  */
+@media (max-width: 462px) {
+  .nav .logo img {
+    margin: 0px 1em;
+    max-width: 160px;
+    align-items: center;
+  }
 }

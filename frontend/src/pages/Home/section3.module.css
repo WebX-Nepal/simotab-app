@@ -5,6 +5,7 @@
   margin-top: 50px;
 }
 .section3 h1 {
+  margin: 3rem 0 2rem 0;
   font-size: 40px;
   font-weight: 500;
 }
@@ -62,9 +63,23 @@
   }
 }
 
+@media (min-width: 768px) and (max-height: 900px) {
+  .section3 {
+    padding: 0 80px;
+    margin-top: -15em;
+  }
+}
+@media (min-width: 900px) {
+  .section3 {
+    padding: 0 80px;
+    margin-top: 0em;
+  }
+}
+
 @media (max-width: 768px) {
   .section3 {
     padding: 0 80px;
+    margin-top: -15em;
   }
   .section3 h1 {
     margin: auto;
@@ -93,7 +108,19 @@
 @media (min-width: 768px) and (max-width: 900px) {
   .section3 {
     padding: 0 80px;
-    margin-top: -15em;
+
     align-items: center;
+  }
+}
+
+/* for mobile devices  */
+@media (max-width: 462px) {
+  .section3 {
+    padding: 0 3em;
+    margin-top: -14rem;
+  }
+  .section3 h1 {
+    text-align: start;
+    font-size: 1.9rem;
   }
 }
