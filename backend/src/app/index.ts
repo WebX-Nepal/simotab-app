@@ -20,8 +20,13 @@ export const app = express();
 connectdb();
 
 app.use(express.json({ limit: "50mb" }));
+const corsOptions = {
+  origin: "https://simotap.com", // No trailing slash
+};
+
+app.use(cors(corsOptions));
+
 app.use(cookieParser());
-app.use(cors());
 app.use(mongoSanitize());
 app.use(compression());
 app.use(helmet());
