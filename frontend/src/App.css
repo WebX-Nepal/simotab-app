@@ -2,6 +2,7 @@ body {
   background-color: #ededed;
 }
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Magnify", sans-serif;
@@ -45,6 +46,11 @@ body {
   position: relative;
   z-index: 3;
 }
+.content-container {
+  position: relative;
+  z-index: 3;
+  width: 98.9vw;
+}
 
 @media (min-width: 300px) and (max-width: 1500px) {
   .content-container {
@@ -52,12 +58,6 @@ body {
     z-index: 3;
     width: 100vw;
   }
-}
-
-.content-container {
-  position: relative;
-  z-index: 3;
-  width: 98.9vw;
 }
 
 #tsparticles {
