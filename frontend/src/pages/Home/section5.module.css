@@ -27,6 +27,7 @@
 .section5 .right h1 {
   font-size: 40px;
   font-weight: 500;
+  margin: 3rem 0 2rem 0;
 }
 .section5 .right div {
   display: flex;
@@ -46,7 +47,7 @@
   border-radius: 50px;
   color: white;
   background: linear-gradient(#2e2f84, #652e91);
-
+  margin: 2rem 0 2rem 0;
   border: none;
   cursor: pointer;
 }
@@ -87,5 +88,24 @@
   }
   .section5 .right button {
     margin: 10px auto;
+  }
+}
+
+/* for mobile devices  */
+@media (max-width: 462px) {
+  .section5 {
+    margin-top: 1rem;
+    padding: 0 3em;
+  }
+
+  .section5 .right h1 {
+    text-align: start;
+  }
+
+  .section5 .right p {
+    text-align: start;
+  }
+  .section5 .right button {
+    margin: 1em 0px;
   }
 }

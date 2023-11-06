@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./index.css";
+import "./editProfile.css";
 import {
   deleteData,
   getData,
@@ -14,7 +14,7 @@ import { errorToast, successToast } from "../../../../services/toast.service";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { MdOutlineCancelPresentation } from "react-icons/md";
-
+import { SocialIcon } from "react-social-icons";
 import {
   BsFacebook,
   BsInstagram,
@@ -155,37 +155,37 @@ const EditProfile = () => {
     {
       name: "Facebook",
       id: 1,
-      component: <BsFacebook />,
+      component: <BsFacebook className="text-blue-700" />,
     },
     {
       name: "Instagram",
       id: 2,
-      component: <BsInstagram />,
+      component: <BsInstagram className="text-[#ee0c11]" />,
     },
     {
       name: "tiktok",
       id: 3,
-      component: <BsTiktok />,
+      component: <BsTiktok className="text-black" />,
     },
     {
       name: "Twitter",
       id: 4,
-      component: <BsTwitter />,
+      component: <BsTwitter className="text-blue-600" />,
     },
     {
       name: "Linkedin",
       id: 5,
-      component: <BsLinkedin />,
+      component: <BsLinkedin className="text-blue-800" />,
     },
     {
       name: "Gmail",
       id: 6,
-      component: <BiLogoGmail />,
+      component: <BiLogoGmail className="text-re" />,
     },
     {
       name: "Github",
       id: 7,
-      component: <BsGithub />,
+      component: <BsGithub className="text-slate-800" />,
     },
     {
       name: "Snapchat",
@@ -195,12 +195,12 @@ const EditProfile = () => {
     {
       name: "Whatsapp",
       id: 9,
-      component: <BsWhatsapp />,
+      component: <BsWhatsapp className="text-green-600" />,
     },
     {
       name: "Youtube",
       id: 10,
-      component: <BsYoutube />,
+      component: <BsYoutube className="text-red-700" />,
     },
   ];
 
@@ -225,8 +225,8 @@ const EditProfile = () => {
 
   return (
     <>
-      <div className="flex justify-center gap-8">
-        <div className="max-w-lg ms-[40%] mx-auto  mb-2 mt-1  bg-[#FFF] shadow-lg p-[20px] rounded-md">
+      <div className="flex  gap-[300px] mt-[-90px]">
+        <div className="ms-[30%]   mb-2 mt-1  bg-[#FFF] shadow-lg p-[20px] rounded-md">
           {current_user_info && (
             <>
               <div className="add-profile">
@@ -373,9 +373,11 @@ const EditProfile = () => {
                             className="social-media-item object-contain"
                           >
                             <span className="text-7xl ">
-                              {element.name === socialMediaLink.name
-                                ? element.component
-                                : ""}
+                              {element.name === socialMediaLink.name ? (
+                                <SocialIcon url={socialMediaLink.url} />
+                              ) : (
+                                ""
+                              )}
                             </span>
                           </Link>
                         );
@@ -384,7 +386,7 @@ const EditProfile = () => {
                   );
                 })}
 
-                <div className="social-media-item w-[80.497px] h-[80.497px]">
+                <div className="social-media-item w-[80.497px] h-[80.497px] mt-[10px]">
                   <button
                     onClick={() => {
                       handleOpen();
@@ -394,7 +396,7 @@ const EditProfile = () => {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="89"
+                      width="60"
                       height="87"
                       viewBox="0 0 89 87"
                       fill="none"
@@ -462,7 +464,6 @@ const EditProfile = () => {
               </div>
             </>
           )}
-
           <div>
             <Modal
               open={open}
@@ -533,7 +534,6 @@ const EditProfile = () => {
               </Box>
             </Modal>
           </div>
-
           <div className="other-media-links">
             <h1 className="text-gray-500 text-[20px] my-3">Link lists</h1>
             <button className="add-links" onClick={() => handleOpenLink()}>
@@ -655,60 +655,65 @@ const EditProfile = () => {
           </div>
         </div>
         {/* mobile_view of image */}
-        <div className="view-profile-wrapper">        
-        <div className="view-profile">
-          <img
-            src={
-              current_user_info?.coverImageUrl?.url
-                ? current_user_info.coverImageUrl.url
-                : ""
-            }
-            alt=""
-            className="h-[78px] w-[201px]  rounded-sm object-cover flex justify-center ml-[-15%]"
-          />
-          <img
-            src={
-              current_user_info?.profileImageUrl?.url
-                ? current_user_info.profileImageUrl.url
-                : "#"
-            }
-            alt=""
-            className="h-[74px] w-[74px] rounded-full object-cover mt-[-40px] mx-9"
-          />
-          <div className="view-profile-bio">
-            <h1 className="shadow-lg p-2">
-              Business is all about knowing more opportunities.
-            </h1>
-          </div>
-          <button className="view-profile-phoneBtn">Add To Your Phone</button>
-          <div className="view-profile-social-media-links">
-            {current_user_info.socialMediaLinks.map((socialMediaLink) => {
-              return (
-                <div key={socialMediaLink._id} className="">
-                  {elements.map((element) => {
-                    return (
-                      <Link
-                        key={element.id}
-                        to={socialMediaLink.url}
-                        target="_blank"
-                      >
-                        <span className="text-3xl">
-                          {element.name === socialMediaLink.name
-                            ? element.component
-                            : ""}
-                        </span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-            })}
-          </div>
-          <div className="view-profile-other-links">
+        <div className="view-profile-wrapper">
+          <div className="view-profile">
+            <img
+              src={
+                current_user_info?.coverImageUrl?.url
+                  ? current_user_info.coverImageUrl.url
+                  : ""
+              }
+              alt=""
+              className="h-[78px] w-[201px]  rounded-sm object-cover flex justify-center ml-[-15%]"
+            />
+            <img
+              src={
+                current_user_info?.profileImageUrl?.url
+                  ? current_user_info.profileImageUrl.url
+                  : "#"
+              }
+              alt=""
+              className="h-[74px] w-[74px] rounded-full object-cover mt-[-40px] mx-9"
+            />
+            <div className="view-profile-bio">
+              <h1 className="shadow-lg p-2">
+                Business is all about knowing more opportunities.
+              </h1>
+            </div>
+            <button className="view-profile-phoneBtn">Add To Your Phone</button>
+            <div className="view-profile-social-media-links">
+              {current_user_info.socialMediaLinks.map((socialMediaLink) => {
+                return (
+                  <div key={socialMediaLink._id} className="">
+                    {elements.map((element) => {
+                      return (
+                        <Link
+                          key={element.id}
+                          to={socialMediaLink.url}
+                          target="_blank"
+                        >
+                          <span className="text-3xl">
+                            {element.name === socialMediaLink.name ? (
+                              <SocialIcon url={socialMediaLink.url} />
+                            ) : (
+                              ""
+                            )}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="view-profile-other-links">
               {Links &&
                 Links.map((link) => {
                   return (
-                    <div key={link._id} className="view-profile-link-container shadow-lg mt-2">
+                    <div
+                      key={link._id}
+                      className="view-profile-link-container shadow-lg mt-2"
+                    >
                       <Link to={link.url} className="view-profile-link-url">
                         {link.url}
                       </Link>
@@ -716,7 +721,7 @@ const EditProfile = () => {
                   );
                 })}
             </div>
-        </div>
+          </div>
         </div>
       </div>
     </>

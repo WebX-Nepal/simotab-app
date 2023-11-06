@@ -1,28 +1,37 @@
 .section2 {
   display: flex;
   padding: 0px 100px;
-  gap: 80px;
   /* width: 98vw; */
   margin-top: 50px;
 }
 .left {
-  width: 40%;
+  width: 60%;
   /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
   padding: 0;
-  margin: 50px 100px 20px 0px;
+  margin: 50px 30px 10px 0px;
 }
+
 .left h1 {
-  /* width: 500px; */
   margin: 0;
   font-size: 50px;
   font-weight: 600;
   color: #222;
   /* margin-bottom: 30px; */
 }
+@media (min-width: 780px) and (max-width: 1290px) {
+  .left h1 {
+    width: 450px;
+    margin: 0;
+    font-size: 45px;
+    font-weight: 600;
+    color: #222;
+  }
+}
+
 .text {
   display: flex;
   flex-direction: column;
@@ -36,36 +45,51 @@
 }
 .left button {
   width: fit-content;
-  outline: none;
   font-size: 14px;
   font-weight: 600;
   padding: 12px 42px;
-  border-radius: 50px;
-  color: rebeccapurple;
-  border: 3px solid rebeccapurple;
   cursor: pointer;
   height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px 0;
+  outline: none;
+  border-radius: 50px;
+  border: 2px solid rebeccapurple;
+  color: rebeccapurple;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.left button:hover {
+  background: linear-gradient(#2e2f84, #652e91);
+  color: #ededed;
 }
 .right {
-  width: 40%;
+  width: 37%;
   display: flex;
   justify-content: center;
-  padding: 20px;
   margin-top: 70px;
-  overflow: hidden;
 }
 
 .right video {
   transform: scale(1.05);
-  max-width: 600px;
-  height: fit-content;
-  height: 300px;
+  max-height: 300px;
+  /* height: fit-content; */
   /* background-color: rgb(209, 202, 202); */
   border-radius: 25px;
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .right video {
+    /* margin-left: 5em; */
+    transform: scale(1.05);
+    max-height: 250px;
+    max-width: 300px;
+    height: fit-content;
+    height: 300px;
+    /* background-color: rgb(209, 202, 202); */
+    border-radius: 25px;
+  }
 }
 
 /* Responsive part  */
@@ -108,7 +132,7 @@
 
   .right video {
     /* margin: 53px 0; */
-    margin-top: 5em;
+    margin-top: 8em;
     max-height: 200px;
     border-radius: 25px;
   }
@@ -143,23 +167,107 @@
   .text {
     margin: 250px auto;
   }
-  .right {
-    display: flex;
-    max-width: 40%; /* Take up most of the screen width */
-    position: absolute;
-    top: 90px;
-    margin: 30px auto;
-  }
 
   .right video {
-    width: 100%; /* Ensure video doesn't overflow */
+    /* width: 100%; */
+    /* Ensure video doesn't overflow */
     border-radius: 25px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1078px) {
+  .section2 {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .left {
+    width: 100%; /* Take up most of the screen width */
+    text-align: center;
+    margin: 20px auto; /* Adjust spacing */
+    gap: 40px;
+  }
+  .left h1 {
+    width: 100%; /* Take up most of the screen width */
+    text-align: center;
+    margin: 20px auto; /* Adjust spacing */
+    gap: 40px;
+  }
   .right video {
-    width: 100vw; /* Ensure video doesn't overflow */
-    border-radius: 25px;
+    /* width: 100%;  */
+    /* Take up most of the screen width */
+    text-align: center;
+    gap: 40px;
+  }
+  .left button {
+    margin: 2em auto;
+  }
+  .right {
+    width: 40%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 701px) {
+  .right {
+    /* width: 100%; */
+    justify-content: center;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 901px) {
+  .text p {
+    margin-top: -2rem;
+  }
+  .right video {
+    margin-top: 8em;
+  }
+}
+@media (min-width: 416px) and (max-width: 600px) {
+  .right video {
+    margin-top: 5em;
+  }
+  .text p {
+    margin-top: -5rem;
+  }
+}
+
+/* for mobile devices  */
+@media (max-width: 462px) {
+  .section2 {
+    padding: 0 3em;
+    margin-top: -2rem;
+  }
+  .left h1 {
+    text-align: start;
+  }
+
+  .left p {
+    text-align: start;
+  }
+  .left button {
+    margin: 2em 0px 0px 0px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 50px;
+  }
+  .right video {
+    margin-top: 5em;
+    max-width: 70vw;
+  }
+}
+
+@media (max-width: 416px) {
+  .right video {
+    /* margin-top: 0rem; */
+    align-items: center;
+    max-width: 70vw;
+    margin-top: 6em;
+  }
+  .text p {
+    margin-top: -3rem;
+  }
+  .section2 {
+    flex-direction: column-reverse;
   }
 }

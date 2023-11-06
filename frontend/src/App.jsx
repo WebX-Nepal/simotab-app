@@ -22,6 +22,7 @@ import Setting from "./pages/admin/Setting";
 import UserProfile from "./pages/UserProfile";
 import Sidebar from "./components/Slidebar";
 import UnderMaintainance from "./pages/admin/UnderMaintance";
+import MyDropzone from "./components/DragAndDrop";
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
 
         <Route path="/user-profile/:id" element={<UserProfile />} />
         <Route path="*" element={<UnMatchedRoutePage />} />
+        <Route path="/sideme" element={<MyDropzone />} />
       </Routes>
     </>
   );

@@ -6,8 +6,6 @@ import mob_ic from "../../../public/assets/mob_ic.png"
 
 import { Link } from 'react-router-dom';
 
-
-
 function Section1() {
     return (
         <>
@@ -34,7 +32,7 @@ function Section1() {
                             tiltMaxAngleY={20} perspective={1000}
                         >
                             <img src="../../../assets/card holder.png" alt="cardHolder"
-                            className="rounded-[10px]" />
+                                className="rounded-[10px]" />
                         </Tilt>
 
                     </div>

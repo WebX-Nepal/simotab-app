@@ -1,26 +1,26 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import "./index.css";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Person2Icon from "@mui/icons-material/Person2";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
 
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import ContactMailIcon from "@mui/icons-material/ContactMail";
+import CreateRoundedIcon from "@mui/icons-material/CreateRounded";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PetsIcon from "@mui/icons-material/Pets";
 import KeyIcon from "@mui/icons-material/Key";
@@ -65,24 +65,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -103,16 +85,9 @@ const Drawer = styled(MuiDrawer, {
 export default function Sidebar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState("none");
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const [showEditProfile, setshowEditProfile] = React.useState("none");
 
   const handleLogout = () => {
     dispatch(logedOut());
@@ -122,42 +97,18 @@ export default function Sidebar() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar className="bg-white">
-          <IconButton
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 20,
-              color: "black",
 
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <div className="nav">
-            <NavLink to="/" className="logo">
-              <img src="../../../image/logo.png" />
-            </NavLink>
-          </div>
-        </Toolbar>
-      </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
+          <IconButton onClick={() => setOpen(!open)}>
+            {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
           {[
             "My-Profile",
+            "Edit-profile",
             "Contacts",
             "My-Cards",
             "My-Pets",
@@ -166,7 +117,14 @@ export default function Sidebar() {
             "Social-Media-kits",
             "Buy-Simotap",
           ].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+            <ListItem
+              key={text}
+              disablePadding
+              sx={{
+                display: `${index === 1 ? `${showEditProfile}` : "block"}`,
+                marginLeft: `${index === 1 ? "20px" : "0"}`,
+              }}
+            >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -175,6 +133,12 @@ export default function Sidebar() {
                 }}
                 onClick={() => {
                   navigate(`/admin/${text.toLowerCase()}`);
+                  if (index === 0 && showEditProfile === "none") {
+                    setshowEditProfile("block");
+                  }
+                  if (index === 0 && showEditProfile === "block") {
+                    setshowEditProfile("none");
+                  }
                 }}
               >
                 <ListItemIcon
@@ -185,15 +149,26 @@ export default function Sidebar() {
                   }}
                 >
                   {index === 0 && <Person2Icon />}
-                  {index === 1 && <ContactMailIcon />}
-                  {index === 2 && <DashboardIcon />}
-                  {index === 3 && <PetsIcon />}
-                  {index === 4 && <KeyIcon />}
-                  {index === 5 && <BookmarkIcon />}
-                  {index === 6 && <TagIcon />}
-                  {index === 7 && <ShoppingCartIcon />}
+                  {index === 1 && <CreateRoundedIcon />}
+                  {index === 2 && <ContactMailIcon />}
+                  {index === 3 && <DashboardIcon />}
+                  {index === 4 && <PetsIcon />}
+                  {index === 5 && <KeyIcon />}
+                  {index === 6 && <BookmarkIcon />}
+                  {index === 7 && <TagIcon />}
+                  {index === 8 && <ShoppingCartIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                {index === 0 && showEditProfile === "none" ? (
+                  <KeyboardArrowUpRoundedIcon />
+                ) : (
+                  ""
+                )}
+                {index === 0 && showEditProfile === "block" ? (
+                  <KeyboardArrowDownRoundedIcon />
+                ) : (
+                  ""
+                )}
               </ListItemButton>
             </ListItem>
           ))}
@@ -208,7 +183,6 @@ export default function Sidebar() {
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
-                // onClick={index === 2 ? handleLogout : console.log("sd js djn")}
                 onClick={() => {
                   index != 2
                     ? navigate(`/admin/${text.toLowerCase()}`)

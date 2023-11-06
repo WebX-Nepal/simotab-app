@@ -11,10 +11,9 @@ const CreateFaq = () => {
     question: string().required("Question field is required"),
     answer: string().required("Answer field is required"),
   });
-  const handleSubmit=(values)=>{
-    console.log(values)
-
-  }
+  const handleSubmit = (values) => {
+    console.log(values);
+  };
   return (
     <div className="max-w-md mx-auto mb-2 mt-10">
       <Formik
@@ -22,7 +21,7 @@ const CreateFaq = () => {
         validationSchema={FaqsValidation}
         onSubmit={handleSubmit}
       >
-        {({isSubmitting}) => {
+        {({ isSubmitting }) => {
           return (
             <Form>
               <div className="mb-4">
@@ -57,7 +56,6 @@ const CreateFaq = () => {
               >
                 {isSubmitting ? "creating.." : "submit"}
               </button>
-
             </Form>
           );
         }}

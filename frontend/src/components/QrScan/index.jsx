@@ -18,7 +18,9 @@ const QrScanCode = () => {
     generateQrCode();
   });
 
-  return <div>{QrCode && <img src={QrCode} alt="" />}</div>;
+  return (
+    <di> {QrCode && <img className="w-[300px]" src={QrCode} alt="" />}</di>
+  );
 };
 
 export default QrScanCode;

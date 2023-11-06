@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./index.css";
+import "./profile.css";
 import { getData } from "../../../services/axios.service";
 import { loadUser } from "../../signin/auth.Slice";
 import { Link } from "react-router-dom";
-import { CgMenuLeft } from "react-icons/cg";
-import DrawerAdmin from "../../../components/Drawer";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import {
@@ -22,10 +20,10 @@ import {
 import { BiLogoGmail } from "react-icons/bi";
 import { Typography } from "@mui/material";
 import QrScanCode from "../../../components/QrScan";
+import { SocialIcon } from "react-social-icons";
 
 const MyProfile = () => {
   const dispatch = useDispatch();
-  const [isDrawerOpen, setisDrawerOpen] = useState(false);
   const [user, setuser] = useState({});
   const [links, setlinks] = useState([]);
   const { token, userId, current_user_info } = useSelector((state) => {
@@ -112,16 +110,6 @@ const MyProfile = () => {
           <div className="profile-wrapper">
             <div className="top-nav ml-[-1px] w-[440px] ">
               <div className="top-nav-item">
-                <button
-                  className="text-2xl"
-                  onClick={() => setisDrawerOpen(true)}
-                >
-                  <CgMenuLeft />
-                </button>
-                <DrawerAdmin
-                  isDrawerOpen={isDrawerOpen}
-                  setisDrawerOpen={setisDrawerOpen}
-                />
                 <img
                   src="../../../../assets/logo.png"
                   className="nav-logo"
@@ -191,7 +179,7 @@ const MyProfile = () => {
                   <h1 className="profile-name text-2xl relative text-white">
                     {user.name}
                   </h1>
-                  <h1 className="profile-bio">
+                  <h1 className="profile-bio ms-[16px]">
                     Business is all about knowing more opportunities.
                   </h1>
                 </div>
@@ -201,8 +189,7 @@ const MyProfile = () => {
                   Add to your Phone
                 </button>
               </div>
-
-              <div className="social-media-links">
+              <div className="social-media-links   grid grid-cols-5 w-full py-2  ">
                 {current_user_info.socialMediaLinks.map((socialMediaLink) => {
                   return (
                     <div key={socialMediaLink._id} className="">
@@ -213,10 +200,12 @@ const MyProfile = () => {
                             to={socialMediaLink.url}
                             target="_blank"
                           >
-                            <span className="text-7xl">
-                              {element.name === socialMediaLink.name
-                                ? element.component
-                                : ""}
+                            <span className="">
+                              {element.name === socialMediaLink.name ? (
+                                <SocialIcon url={socialMediaLink.url} />
+                              ) : (
+                                ""
+                              )}
                             </span>
                           </Link>
                         );
@@ -230,7 +219,7 @@ const MyProfile = () => {
                 {links &&
                   links.map((link) => {
                     return (
-                      <div key={link._id} className="link-container">
+                      <div key={link._id} className="link-container ms-[10px]">
                         <Link to={link.url} className="link-url">
                           {link.url}
                         </Link>
