@@ -11,23 +11,19 @@
   align-items: center;
 }
 
-/* .section5 .left img {
-  width: 550.78px;
-  height: 427.62px;
-} */
 .section5 .right {
   width: 45%;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-self: center;
   gap: 10px;
   padding-bottom: 10px;
 }
+
 .section5 .right h1 {
   font-size: 40px;
   font-weight: 500;
-  margin: 3rem 0 2rem 0;
+  margin: 1rem 0 1rem 0;
 }
 .section5 .right div {
   display: flex;
@@ -47,7 +43,7 @@
   border-radius: 50px;
   color: white;
   background: linear-gradient(#2e2f84, #652e91);
-  margin: 2rem 0 2rem 0;
+  margin: 0.5rem 0 2rem 0;
   border: none;
   cursor: pointer;
 }

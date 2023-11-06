@@ -223,3 +223,13 @@
     max-width: 80vw;
   }
 }
+
+/* responsive for tab */
+@media (min-width: 905px) and (max-width: 1078px) {
+  .section1 .top {
+    flex-direction: row;
+  }
+  .right img {
+    margin: 2em;
+  }
+}

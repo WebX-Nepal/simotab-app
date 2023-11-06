@@ -271,3 +271,14 @@
     flex-direction: column-reverse;
   }
 }
+
+/* responsive for tab */
+@media (min-width: 905px) and (max-width: 1078px) {
+  .section2 {
+    flex-direction: row;
+  }
+  .right video {
+    margin-left: 4em;
+    margin-bottom: 5em;
+  }
+}
