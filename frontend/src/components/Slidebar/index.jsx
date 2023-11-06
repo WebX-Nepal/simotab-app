@@ -85,7 +85,13 @@ const Drawer = styled(MuiDrawer, {
 export default function Sidebar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+<<<<<<< HEAD
+=======
+  const theme = useTheme();
+>>>>>>> be5f5e5e1cf63d655c14c8050b7bbed3f265dbba
   const [open, setOpen] = React.useState("none");
+
+  const [showEditProfile, setshowEditProfile] = React.useState("none");
 
   const [showEditProfile, setshowEditProfile] = React.useState("none");
 
@@ -97,7 +103,31 @@ export default function Sidebar() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
+<<<<<<< HEAD
 
+=======
+      <AppBar position="fixed" open={open}>
+        <Toolbar className="bg-white">
+          <IconButton
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{
+              color: "black",
+
+              ...(open && { display: "none" }),
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <div className="nav w-full">
+            <NavLink to="/" className="logo">
+              <img src="../../../image/logo.png" />
+            </NavLink>
+          </div>
+        </Toolbar>
+      </AppBar>
+>>>>>>> be5f5e5e1cf63d655c14c8050b7bbed3f265dbba
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={() => setOpen(!open)}>
@@ -149,7 +179,11 @@ export default function Sidebar() {
                   }}
                 >
                   {index === 0 && <Person2Icon />}
+<<<<<<< HEAD
                   {index === 1 && <CreateRoundedIcon />}
+=======
+                  {index === 1 && <ContactMailIcon />}
+>>>>>>> be5f5e5e1cf63d655c14c8050b7bbed3f265dbba
                   {index === 2 && <ContactMailIcon />}
                   {index === 3 && <DashboardIcon />}
                   {index === 4 && <PetsIcon />}

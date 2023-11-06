@@ -109,7 +109,11 @@ const Contact = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="container mt-[-86px] min-h-[90vh] bg-white max-w-[500px] m-auto rounded-[20px] p-[10px]  ">
+=======
+      <div className="container mt-[-16px] min-h-[90vh] bg-white max-w-[500px] m-auto rounded-[20px] p-[10px]  ">
+>>>>>>> be5f5e5e1cf63d655c14c8050b7bbed3f265dbba
         <div className=" first flex justify-between items-center mx-[30px] ">
           <h1 className="mt-4 text-[24px] font-[400]">CONTACT</h1>
           <svg
@@ -228,10 +232,14 @@ const Contact = () => {
                     </svg>
 
                     <div className="details flex flex-col ">
+<<<<<<< HEAD
                       <h1
                         type="name"
                         className="name text-[16px] font-[400] w-[100px]"
                       >
+=======
+                      <h1 type="name" className="name text-[16px] font-[400]">
+>>>>>>> be5f5e5e1cf63d655c14c8050b7bbed3f265dbba
                         {contract?.name}
                       </h1>
                       <p type="email" className="text-[13px]">
@@ -240,6 +248,12 @@ const Contact = () => {
                       <p type="email" className="text-[13px]">
                         {contract?.phone}
                       </p>
+<<<<<<< HEAD
+=======
+                      <p type="date" className="text-[10px]">
+                        {contract?.createdAt}
+                      </p>
+>>>>>>> be5f5e5e1cf63d655c14c8050b7bbed3f265dbba
                     </div>
 
                     <div className="ms-5 flex gap-5">

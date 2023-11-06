@@ -189,7 +189,12 @@ const MyProfile = () => {
                   Add to your Phone
                 </button>
               </div>
+<<<<<<< HEAD
               <div className="social-media-links   grid grid-cols-5 w-full py-2  ">
+=======
+
+              <div className="social-media-links   grid grid-cols-4 w-full py-4 m-2 ">
+>>>>>>> be5f5e5e1cf63d655c14c8050b7bbed3f265dbba
                 {current_user_info.socialMediaLinks.map((socialMediaLink) => {
                   return (
                     <div key={socialMediaLink._id} className="">
