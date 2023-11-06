@@ -51,6 +51,7 @@ a {
   right: 80px;
   top: -27px;
 }
+
 .profile-container {
   float: left;
 }
@@ -58,12 +59,23 @@ a {
 .profile-image {
   margin-left: 500px;
 }
+
+@media screen and (max-width: 879px) {
+  button img {
+    position: absolute;
+    right: 20%;
+    top: 10px;
+    height: 45px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .signUpBtn {
     position: absolute;
     right: 0;
     top: -25px;
   }
+
   .profile-container {
     left: -200px;
   }
@@ -149,13 +161,13 @@ li:hover {
     display: block;
     cursor: pointer;
     position: absolute;
-    right: 9px;
+    right: 0px;
   }
   .signUpBtn {
     margin: 40px auto;
-    max-width: 50%;
+    max-width: 7rem;
     padding: 0;
-    top: 130px;
+    top: 55%;
     left: 0;
   }
 
@@ -188,14 +200,19 @@ li:hover {
     flex-direction: column;
     gap: 0;
     top: 70px;
-    left: 260%;
+    right: 100%;
     text-align: start;
-    width: 60%;
     transition: 0.7s ease-in-out;
     background-color: #bdbdc8;
     padding: 10px;
     text-decoration: none;
     color: white;
+    height: 300px;
+    display: flex;
+    width: 100vw;
+    /* gap: 8px; */
+    justify-content: flex-start;
+    z-index: 100;
   }
 
   .navMenu.active {
@@ -214,4 +231,13 @@ li:hover {
   display: block;
   cursor: pointer;
   margin: 3px 2em;
+}
+
+/* for mobile devices  */
+@media (max-width: 462px) {
+  .nav .logo img {
+    margin: 0px 1em;
+    max-width: 160px;
+    align-items: center;
+  }
 }

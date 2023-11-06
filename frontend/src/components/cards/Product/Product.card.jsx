@@ -23,7 +23,7 @@ const Products = ({ product }) => {
         >
           <img
             src={product.thumbnailUrl.url}
-            className="card-img-top image h-[12em]"
+            className="card-img-top imagec"
             alt="card image"
           />
         </Tilt>

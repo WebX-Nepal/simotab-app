@@ -7,6 +7,16 @@
   max-width: 100%;
   overflow-x: hidden;
 }
+
+.shopSection {
+  margin-top: 110px;
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .shopSection h1 {
   margin: 0;
   font-size: 64px;
@@ -71,66 +81,12 @@
   gap: 10px;
 }
 
-/* .cards{
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap:75px;
-    justify-content: space-between;
-}
-.card{
-   display: flex;
-   flex-direction: column;
-   gap: 30px;
-   padding: 30px;
-   border: none;
-   border-radius: 30px;
-   background-color:#D9D9D9;
-
-}
- .imgDiv{
-    width: 300px;
-    height: 260px;
-    background-color: #D9D9D9;
-}
- .imgDiv img{
-    width: 300px;
-    height: 260px;
-    object-fit: cover;
-}
- .cardBottom{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;gap: 10px;
-}
-
- .cardBottom p,.cardBottom button{
-   margin: 0;
-}
-.cardBottom p{
-    font-size: 18px;
-}
-.cardBottom button{
-    width: fit-content;
-    outline: none;
-    border: none;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 12px 60px;
-    border-radius: 50px;
- color:white;
- background:linear-gradient( #2E2F84,#652E91 );
-    cursor: pointer; 
-}*/
-
 .product {
   display: flex;
   flex-wrap: wrap;
   gap: 97px;
 }
-@media screen and (max-width: 927px) {
+@media screen and (max-width: 785px) {
   .shopSection .sectionSearch .scrollContainer {
     display: flex;
     align-items: center;
@@ -142,6 +98,7 @@
     border-radius: 50px;
     background-color: white;
     max-width: 80%;
+    z-index: 0;
   }
 }
 

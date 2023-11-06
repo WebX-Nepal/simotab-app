@@ -92,9 +92,9 @@ function Navbar() {
         </ul>
 
         {current_user_info?.profileImageUrl?.url && (
-          <div className="profile-container bts">
-            <button onClick={() => navigate('/admin/my-profile')}>
-              <img src={current_user_info.profileImageUrl.url} alt="" className=" profile-image w-[50px] h-[50px] rounded-full object-cover   " />
+          <div className="profile-container bts signUpBtn">
+            <button className="profile" onClick={() => navigate('/admin/my-profile')}>
+              <img src={current_user_info.profileImageUrl.url} alt="" className="profile-image sm:w-[50px] sm:h-[50px] rounded-full object-cover   " />
             </button>
 
           </div>
