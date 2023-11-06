@@ -107,19 +107,13 @@
   flex-shrink: 0;
 }
 
-.social-media-links {
-  /* display: flex;
+/* .social-media-links { */
+/* display: flex;
   flex-wrap: wrap;
   gap: 30px;
-<<<<<<< HEAD:frontend/src/pages/admin/My-Profile/profile.css
   width: 400px;
   margin: 10px 0 !important;
   overflow: hidden;
-=======
-  width: 100%;
-  margin: 0;
-  overflow: hidden; */
->>>>>>> be5f5e5e1cf63d655c14c8050b7bbed3f265dbba:frontend/src/pages/admin/My-Profile/index.css
 }
 
 /* removng the default style of ancor tag for overall profile page  */

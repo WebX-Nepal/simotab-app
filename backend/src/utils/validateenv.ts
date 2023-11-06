@@ -1,5 +1,5 @@
 import { cleanEnv, str, port } from "envalid";
-import "dotenv/config"
+import "dotenv/config";
 export default cleanEnv(process.env, {
   MONGO_URL: str(),
   PORT: port(),
