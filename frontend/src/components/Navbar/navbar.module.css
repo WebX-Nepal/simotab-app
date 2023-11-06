@@ -241,3 +241,9 @@ li:hover {
     align-items: center;
   }
 }
+/* for tab devices  */
+@media (min-width: 462px) and (max-width: 781px) {
+  .nav .logo img {
+    margin: 0px 1.5em;
+  }
+}

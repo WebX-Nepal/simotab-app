@@ -14,7 +14,7 @@
 }
 .cards {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   /* justify-content: space-between; */
   gap: 3em;
   justify-content: center;
@@ -122,5 +122,26 @@
   .section3 h1 {
     text-align: start;
     font-size: 1.9rem;
+  }
+  .cards {
+    width: 100%;
+    margin: auto;
+  }
+}
+@media (max-width: 853px) and (max-width: 913px) {
+  .cards {
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+/* responsive for tab */
+@media (min-width: 905px) and (max-width: 1078px) {
+  .cards {
+    flex-wrap: nowrap;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 1rem;
   }
 }
