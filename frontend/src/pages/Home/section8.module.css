@@ -133,3 +133,56 @@
     width: 100%;
   }
 }
+
+/* responsive for tab */
+@media (min-width: 905px) and (max-width: 1078px) {
+  .section8 {
+    margin-top: 1rem;
+    padding: 0 3em;
+    align-items: center;
+  }
+
+  .section8 h1 {
+    display: flex;
+  }
+  .section8 textarea {
+    width: 100%;
+    max-width: 621px; /* Set a maximum width for the textarea */
+    padding: 16px;
+    border-radius: 16px;
+    /* border: 2px solid rebeccapurple; */
+    font-size: 22px;
+    font-weight: 500;
+    outline: none;
+    margin: 0px;
+  }
+  .inputGroup {
+    width: 70%;
+  }
+}
+
+@media (min-width: 462px) and (max-width: 905px) {
+  .section8 {
+    margin-top: 1rem;
+    padding: 0 3em;
+    align-items: center;
+  }
+
+  .section8 h1 {
+    display: flex;
+  }
+  .section8 textarea {
+    width: 76%;
+    max-width: 621px; /* Set a maximum width for the textarea */
+    padding: 16px;
+    border-radius: 16px;
+    /* border: 2px solid rebeccapurple; */
+    font-size: 22px;
+    font-weight: 500;
+    outline: none;
+    margin: 0px;
+  }
+  .inputGroup {
+    width: 76%;
+  }
+}
