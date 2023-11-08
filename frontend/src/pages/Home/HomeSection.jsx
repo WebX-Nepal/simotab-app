@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -20,7 +20,11 @@ import { logedin } from "../signin/auth.Slice";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
 
 
+
+
 function HomeSection() {
+
+
 
 
   const [accordions, setAccordions] = useState([]);
@@ -65,6 +69,8 @@ function HomeSection() {
 
 
 
+
+
       <div className="homeSection m-auto ms-[-15px] ">
         <Section1 />
         <Section2 />
@@ -88,6 +94,8 @@ function HomeSection() {
         }
         <Section8 />
       </div>
+
+
 
 
 

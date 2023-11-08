@@ -120,8 +120,8 @@
     margin-top: -14rem;
   }
   .section3 h1 {
-    text-align: start;
-    font-size: 1.9rem;
+    text-align: center;
+    font-size: 1.6rem;
   }
   .cards {
     width: 100%;
@@ -143,5 +143,11 @@
     gap: 1em;
     justify-content: center;
     margin-top: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 905px) {
+  .section3 {
+    margin-top: -14rem;
   }
 }

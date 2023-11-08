@@ -247,3 +247,17 @@ li:hover {
     margin: 0px 1.5em;
   }
 }
+
+@media (min-width: 781px) and (max-width: 905px) {
+  .nav .logo img {
+    margin: 0px 2em;
+    max-width: 160px;
+    align-items: center;
+  }
+  button img {
+    position: absolute;
+    right: 7%;
+    top: 10px;
+    height: 45px;
+  }
+}
