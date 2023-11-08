@@ -1,7 +1,5 @@
-
-
 .profile-wrapper {
-  background-color: #EDEDED ;
+  background-color: #ededed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +9,7 @@
   transform: translateX(-50%);
 }
 .second-wrapper {
-  background-image: url("../../../../public/image/Rectangle 120.jpg");
+  background-image: url("../../../../image/Rectangle 120.jpg") !important;
   background-repeat: no-repeat;
   background-size: 460px 3150px;
   padding: 0 10px;
@@ -21,7 +19,7 @@
 
 /* nav */
 .top-nav {
-  background:#e3b26d;
+  background: #e3b26d;
   padding: 20px;
   width: 440px;
   margin: auto;
@@ -38,13 +36,13 @@
   margin-left: -100px;
 }
 
-.top-nav-item{
+.top-nav-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.qr-scan{
-  display:flex;
+.qr-scan {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -154,8 +152,3 @@ a {
   align-items: center;
   gap: 20px;
 }
-
-
-
-
-

@@ -14,7 +14,7 @@ function ShopSection() {
 
   const getCatgories = async () => {
     const response = await getData("categories", token);
-    if(response.success){
+    if (response.success) {
       setcategories(response.categories);
     }
     const data = await postDataWithHeader(
@@ -22,7 +22,7 @@ function ShopSection() {
       { category: response.categories[0]._id },
       token
     );
-    if(data.success){
+    if (data.success) {
       setproducts(data.products);
     }
   };
